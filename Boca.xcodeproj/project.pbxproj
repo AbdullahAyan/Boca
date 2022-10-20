@@ -35,6 +35,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DA5B4BE2901641600F562AA /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3DF40F4B2901620600E4B9D8 /* SceneDelegate.swift */,
+				3DF40F492901620600E4B9D8 /* AppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		3DA5B4BF2901641F00F562AA /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				3DF40F572901620700E4B9D8 /* Info.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
+		3DA5B4C02901642600F562AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DF40F542901620700E4B9D8 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DA5B4C12901643900F562AA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3DF40F522901620700E4B9D8 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		3DF40F3D2901620500E4B9D8 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +87,37 @@
 		3DF40F482901620600E4B9D8 /* Boca */ = {
 			isa = PBXGroup;
 			children = (
-				3DF40F492901620600E4B9D8 /* AppDelegate.swift */,
-				3DF40F4B2901620600E4B9D8 /* SceneDelegate.swift */,
-				3DF40F4D2901620600E4B9D8 /* ViewController.swift */,
-				3DF40F522901620700E4B9D8 /* Assets.xcassets */,
-				3DF40F542901620700E4B9D8 /* LaunchScreen.storyboard */,
-				3DF40F572901620700E4B9D8 /* Info.plist */,
+				3DF40F5E2901634B00E4B9D8 /* App */,
+				3DF40F5F2901635000E4B9D8 /* Screens */,
 			);
 			path = Boca;
+			sourceTree = "<group>";
+		};
+		3DF40F5D2901633600E4B9D8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3DF40F4D2901620600E4B9D8 /* ViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3DF40F5E2901634B00E4B9D8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3DA5B4C12901643900F562AA /* Assets */,
+				3DA5B4C02901642600F562AA /* Views */,
+				3DA5B4BF2901641F00F562AA /* Plists */,
+				3DA5B4BE2901641600F562AA /* Delegates */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3DF40F5F2901635000E4B9D8 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3DF40F5D2901633600E4B9D8 /* Auth */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +333,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TU2682LVXY;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Boca/Info.plist;
+				INFOPLIST_FILE = Boca/App/Plists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -305,7 +361,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TU2682LVXY;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Boca/Info.plist;
+				INFOPLIST_FILE = Boca/App/Plists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
