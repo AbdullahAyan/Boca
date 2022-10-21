@@ -38,12 +38,27 @@ class LoginView: UIView {
         return textField
     }()
     
+    private lazy var registerButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Register", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Mukta-Medium", size: 16)
+        button.backgroundColor = .black
+        
+        button.layer.cornerRadius = 5
+        
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.5
+        
+        return button
+    }()
+    
     private lazy var loginButton: UIButton = {
         let button = UIButton()
         button.setTitle("Login", for: .normal)
         button.titleLabel?.font = UIFont(name: "Mukta-Medium", size: 16)
         button.backgroundColor = .red
-        button.tintColor = .black
         
         button.layer.cornerRadius = 5
         
@@ -114,7 +129,15 @@ class LoginView: UIView {
         addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(24)
-            make.centerX.equalTo(passwordTextField)
+            make.centerX.equalTo(passwordTextField).offset(75)
+            make.width.equalTo(100)
+            make.height.equalTo(50)
+        }
+        
+        addSubview(registerButton)
+        registerButton.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(24)
+            make.centerX.equalTo(passwordTextField).offset(-75)
             make.width.equalTo(100)
             make.height.equalTo(50)
         }
