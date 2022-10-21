@@ -48,8 +48,9 @@ class LoginView: UIView {
         button.layer.cornerRadius = 5
         
         button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowRadius = 5
-        button.layer.shadowOpacity = 0.3
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.5
         
         return button
     }()
@@ -63,17 +64,16 @@ class LoginView: UIView {
     
     private lazy var signWithGoogleButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "btn_google_signin_light_normal_ios"), for: .normal)
-        button.setTitle("Sign in with Google", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 12)
+        button.setImage(UIImage(named: "signWithGoogle"), for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
-        button.backgroundColor = .white
+        button.backgroundColor = .clear
         button.tintColor = .gray
         
         button.layer.cornerRadius = 5
         
         button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowRadius = 5
+        button.layer.shadowRadius = 4
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
         button.layer.shadowOpacity = 0.5
         
         return button
