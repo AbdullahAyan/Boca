@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import GoogleSignIn
+import AuthenticationServices
 
 class LoginView: UIView {
+    
+    var loginViewController: LoginViewController?
     
     private lazy var loginLabel: UILabel = {
         let label = UILabel()
@@ -24,20 +28,40 @@ class LoginView: UIView {
         return label
     }()
     
-    private lazy var emailTextField: UITextField = {
+    private(set) lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "email"
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         return textField
     }()
     
-    private lazy var passwordTextField: UITextField = {
+    private(set) lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "password"
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+
+        textField.isSecureTextEntry = true
+
         return textField
     }()
     
+    private lazy var resetPasswordButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Reset Password", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Mukta-Medium", size: 12)
+        button.backgroundColor = .clear
+        button.setTitleColor(.systemBlue, for: .normal)
+
+        button.addTarget(loginViewController, action: #selector(loginViewController?.resetPassword), for: .touchUpInside)
+        
+        return button
+    }()
+    
+
     private lazy var registerButton: UIButton = {
         let button = UIButton()
         button.setTitle("Register", for: .normal)
@@ -50,6 +74,8 @@ class LoginView: UIView {
         button.layer.shadowOffset = CGSize(width: 0, height: 0)
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.5
+        
+        button.addTarget(loginViewController, action: #selector(loginViewController?.login), for: .touchUpInside)
         
         return button
     }()
@@ -77,22 +103,26 @@ class LoginView: UIView {
         return imageView
     }()
     
-    private lazy var signWithGoogleButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "signWithGoogle"), for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.backgroundColor = .clear
-        button.tintColor = .gray
+    private lazy var signWithGoogleButton: GIDSignInButton = {
+        let button = GIDSignInButton()
+        button.style = .wide
+        button.colorScheme = .light
         
-        button.layer.cornerRadius = 5
-        
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowRadius = 4
-        button.layer.shadowOffset = CGSize(width: 0, height: 0)
-        button.layer.shadowOpacity = 0.5
+        button.addTarget(loginViewController, action: #selector(loginViewController?.signInWithGoogle), for: .touchUpInside)
         
         return button
     }()
+    
+    private lazy var signWithAppleButton: ASAuthorizationAppleIDButton = {
+
+        
+        let authorizationButton = ASAuthorizationAppleIDButton()
+        
+        authorizationButton.addTarget(loginViewController, action: #selector(loginViewController?.signInWithApple), for: .touchUpInside)
+        
+        return authorizationButton
+    }()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -126,9 +156,15 @@ class LoginView: UIView {
             make.width.equalTo(emailTextField)
         }
         
+        addSubview(resetPasswordButton)
+        resetPasswordButton.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom)
+            make.trailing.equalTo(passwordTextField).offset(-8)
+        }
+        
         addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(24)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(48)
             make.centerX.equalTo(passwordTextField).offset(75)
             make.width.equalTo(100)
             make.height.equalTo(50)
@@ -136,7 +172,7 @@ class LoginView: UIView {
         
         addSubview(registerButton)
         registerButton.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(24)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(48)
             make.centerX.equalTo(passwordTextField).offset(-75)
             make.width.equalTo(100)
             make.height.equalTo(50)
@@ -154,6 +190,13 @@ class LoginView: UIView {
         signWithGoogleButton.snp.makeConstraints { make in
             make.top.equalTo(dividerImageView.snp.bottom).offset(36)
             make.centerX.equalTo(dividerImageView)
+
+        }
+        
+        addSubview(signWithAppleButton)
+        signWithAppleButton.snp.makeConstraints { make in
+            make.top.equalTo(signWithGoogleButton.snp.bottom).offset(36)
+            make.centerX.equalTo(signWithGoogleButton)
 
         }
         

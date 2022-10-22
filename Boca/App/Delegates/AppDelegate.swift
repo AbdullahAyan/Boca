@@ -8,7 +8,13 @@
 import UIKit
 import SnapKit
 import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+import GoogleSignIn
+import AuthenticationServices
 
+// ...
+      
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,9 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        
         FirebaseApp.configure()
+        
+        
+
+        
         setupWindow()
+        
         return true
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any])
+      -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
     }
 
     
@@ -30,7 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
     }
+    
+    
 
 
 }
-

@@ -12,6 +12,11 @@ import Foundation
 protocol ViewToViewControllerLoginProtocol {
     var loginView: LoginView? { get set }
     var loginPresenter: ViewControllerToPresenterLoginProtocol? { get set }
+    
+    func login()
+    func resetPassword()
+    func signInWithGoogle()
+    func signInWithApple()
 }
 
 protocol ViewControllerToPresenterLoginProtocol {

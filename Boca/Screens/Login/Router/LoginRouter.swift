@@ -15,6 +15,10 @@ class LoginRouter: PresenterToRouterLoginProtocol {
         let presenter = LoginPresenter()
         let interactor = LoginInteractor()
         
+//        MARK: - View Delegates
+        
+        ref.loginView?.loginViewController = ref
+        
 //        MARK: - ViewController Delegates
         ref.loginView = view
         ref.loginPresenter = presenter
