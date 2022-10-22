@@ -154,8 +154,7 @@ class LoginView: UIView {
         signWithGoogleButton.snp.makeConstraints { make in
             make.top.equalTo(dividerImageView.snp.bottom).offset(36)
             make.centerX.equalTo(dividerImageView)
-//            make.width.equalTo(200)
-//            make.height.equalTo(50)
+
         }
         
     }
