@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupWindow() {
         let window = UIWindow()
-        let viewController = LoginViewController()
+        let viewController = AuthViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

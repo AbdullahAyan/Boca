@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  AuthViewController.swift
 //  Boca
 //
 //  Created by Abdullah Ayan on 20.10.2022.
@@ -11,51 +11,26 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import GoogleSignIn
-import AuthenticationServices
 
-class LoginViewController: UIViewController, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
+class AuthViewController: UIViewController {
 
-    }
-    
-    
-    
-    
-    var loginView: LoginView?
-    var loginPresenter: ViewControllerToPresenterLoginProtocol?
+    var authView: AuthView?
+    var authPresenter: ViewControllerToPresenterAuthProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-        
-        LoginRouter.createModule(ref: self)
-        view = loginView
+        AuthRouter.createModule(ref: self)
+        view = authView
         view.backgroundColor = .white
     }
-    
-    
 }
 
 
 
-extension LoginViewController: ViewToViewControllerLoginProtocol {
+extension AuthViewController: ViewToViewControllerAuthProtocol {
+
     
-    @objc func signInWithApple() {
-        
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
-        
-    }
     
     
     @objc func signInWithGoogle() {
@@ -66,10 +41,10 @@ extension LoginViewController: ViewToViewControllerLoginProtocol {
         let config = GIDConfiguration(clientID: clientID)
         
         // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [weak self] user, error in
             
             if let error = error {
-                // ...
+                self?.authAlert(title: "Error", message: error.localizedDescription)
                 return
             }
             
@@ -85,7 +60,7 @@ extension LoginViewController: ViewToViewControllerLoginProtocol {
             
 
             Auth.auth().signIn(with: credential) { authResult, error in
-                print(authResult?.user.email)
+                print(authResult?.user.email as Any)
                 return
             }
 
@@ -118,9 +93,9 @@ extension LoginViewController: ViewToViewControllerLoginProtocol {
     }
     
     
-    @objc func login() {
+    @objc func register() {
         
-        guard let loginView, let email = loginView.emailTextField.text,let password = loginView.passwordTextField.text else {
+        guard let authView, let email = authView.emailTextField.text,let password = authView.passwordTextField.text else {
             return
         }
         

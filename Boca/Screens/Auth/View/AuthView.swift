@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  AuthView.swift
 //  Boca
 //
 //  Created by Abdullah Ayan on 20.10.2022.
@@ -9,18 +9,18 @@ import UIKit
 import GoogleSignIn
 import AuthenticationServices
 
-class LoginView: UIView {
+class AuthView: UIView {
     
-    var loginViewController: LoginViewController?
+    var authViewController: AuthViewController?
     
-    private lazy var loginLabel: UILabel = {
+    private lazy var authLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Pacifico-Regular", size: 36)
         label.text = "Welcome to Boca"
         return label
     }()
     
-    private lazy var loginText: UILabel = {
+    private lazy var authText: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Mukta-Medium", size: 16)
         label.text = " \"Boca\" the most delicious food on your plate."
@@ -56,7 +56,7 @@ class LoginView: UIView {
         button.backgroundColor = .clear
         button.setTitleColor(.systemBlue, for: .normal)
 
-        button.addTarget(loginViewController, action: #selector(loginViewController?.resetPassword), for: .touchUpInside)
+        button.addTarget(authViewController, action: #selector(authViewController?.resetPassword), for: .touchUpInside)
         
         return button
     }()
@@ -75,7 +75,7 @@ class LoginView: UIView {
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.5
         
-        button.addTarget(loginViewController, action: #selector(loginViewController?.login), for: .touchUpInside)
+        button.addTarget(authViewController, action: #selector(authViewController?.register), for: .touchUpInside)
         
         return button
     }()
@@ -93,6 +93,8 @@ class LoginView: UIView {
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.5
         
+        
+        
         return button
     }()
     
@@ -108,20 +110,12 @@ class LoginView: UIView {
         button.style = .wide
         button.colorScheme = .light
         
-        button.addTarget(loginViewController, action: #selector(loginViewController?.signInWithGoogle), for: .touchUpInside)
+        button.addTarget(authViewController, action: #selector(authViewController?.signInWithGoogle), for: .touchUpInside)
         
         return button
     }()
     
-    private lazy var signWithAppleButton: ASAuthorizationAppleIDButton = {
 
-        
-        let authorizationButton = ASAuthorizationAppleIDButton()
-        
-        authorizationButton.addTarget(loginViewController, action: #selector(loginViewController?.signInWithApple), for: .touchUpInside)
-        
-        return authorizationButton
-    }()
 
     
     override init(frame: CGRect) {
@@ -129,24 +123,24 @@ class LoginView: UIView {
         
         backgroundColor = .white
         
-        addSubview(loginLabel)
-        loginLabel.snp.makeConstraints { make in
+        addSubview(authLabel)
+        authLabel.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(120)
             make.centerX.equalTo(safeAreaLayoutGuide.snp.centerX)
         }
         
-        addSubview(loginText)
-        loginText.snp.makeConstraints { make in
-            make.top.equalTo(loginLabel.snp.bottom).offset(20)
-            make.centerX.equalTo(loginLabel.snp.centerX)
+        addSubview(authText)
+        authText.snp.makeConstraints { make in
+            make.top.equalTo(authLabel.snp.bottom).offset(20)
+            make.centerX.equalTo(authLabel.snp.centerX)
 
         }
         
         addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(loginText.snp.bottom).offset(24)
-            make.centerX.equalTo(loginText)
-            make.width.equalTo(loginText)
+            make.top.equalTo(authText.snp.bottom).offset(24)
+            make.centerX.equalTo(authText)
+            make.width.equalTo(authText)
         }
         
         addSubview(passwordTextField)
@@ -190,14 +184,6 @@ class LoginView: UIView {
         signWithGoogleButton.snp.makeConstraints { make in
             make.top.equalTo(dividerImageView.snp.bottom).offset(36)
             make.centerX.equalTo(dividerImageView)
-
-        }
-        
-        addSubview(signWithAppleButton)
-        signWithAppleButton.snp.makeConstraints { make in
-            make.top.equalTo(signWithGoogleButton.snp.bottom).offset(36)
-            make.centerX.equalTo(signWithGoogleButton)
-
         }
         
     }

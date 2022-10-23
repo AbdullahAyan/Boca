@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DA5B4C92901657E00F562AA /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4C82901657E00F562AA /* LoginProtocols.swift */; };
-		3DA5B4CD290165A800F562AA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4CC290165A800F562AA /* LoginModel.swift */; };
-		3DA5B4CF290165B300F562AA /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4CE290165B300F562AA /* LoginRouter.swift */; };
-		3DA5B4D1290165C000F562AA /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4D0290165C000F562AA /* LoginInteractor.swift */; };
-		3DA5B4D3290165D500F562AA /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4D2290165D500F562AA /* LoginPresenter.swift */; };
+		3DA5B4C92901657E00F562AA /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4C82901657E00F562AA /* AuthProtocols.swift */; };
+		3DA5B4CD290165A800F562AA /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4CC290165A800F562AA /* AuthModel.swift */; };
+		3DA5B4CF290165B300F562AA /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4CE290165B300F562AA /* AuthRouter.swift */; };
+		3DA5B4D1290165C000F562AA /* AuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4D0290165C000F562AA /* AuthInteractor.swift */; };
+		3DA5B4D3290165D500F562AA /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4D2290165D500F562AA /* AuthPresenter.swift */; };
 		3DA5B4D62901667000F562AA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3DA5B4D52901667000F562AA /* SnapKit */; };
-		3DA5B4DA2901825D00F562AA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4D92901825D00F562AA /* LoginView.swift */; };
+		3DA5B4DA2901825D00F562AA /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4D92901825D00F562AA /* AuthView.swift */; };
 		3DA5B4DE2901996F00F562AA /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA5B4DD2901996F00F562AA /* Pacifico-Regular.ttf */; };
 		3DA5B4E329019D6C00F562AA /* Mukta-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA5B4E229019D6C00F562AA /* Mukta-Medium.ttf */; };
 		3DE719C22902B36E00D1A2AE /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DE719C12902B36E00D1A2AE /* Roboto-Medium.ttf */; };
@@ -24,25 +24,25 @@
 		3DF21627290420700097EBB0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF21626290420700097EBB0 /* FirebaseStorage */; };
 		3DF21629290431100097EBB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DF216282904310E0097EBB0 /* GoogleService-Info.plist */; };
 		3DF40F4A2901620600E4B9D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF40F492901620600E4B9D8 /* AppDelegate.swift */; };
-		3DF40F4E2901620600E4B9D8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF40F4D2901620600E4B9D8 /* LoginViewController.swift */; };
+		3DF40F4E2901620600E4B9D8 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF40F4D2901620600E4B9D8 /* AuthViewController.swift */; };
 		3DF40F532901620700E4B9D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF40F522901620700E4B9D8 /* Assets.xcassets */; };
 		3DF40F562901620700E4B9D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF40F542901620700E4B9D8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3DA5B4C82901657E00F562AA /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
-		3DA5B4CC290165A800F562AA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		3DA5B4CE290165B300F562AA /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
-		3DA5B4D0290165C000F562AA /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
-		3DA5B4D2290165D500F562AA /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		3DA5B4D92901825D00F562AA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3DA5B4C82901657E00F562AA /* AuthProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
+		3DA5B4CC290165A800F562AA /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		3DA5B4CE290165B300F562AA /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		3DA5B4D0290165C000F562AA /* AuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractor.swift; sourceTree = "<group>"; };
+		3DA5B4D2290165D500F562AA /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		3DA5B4D92901825D00F562AA /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		3DA5B4DD2901996F00F562AA /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		3DA5B4E229019D6C00F562AA /* Mukta-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Medium.ttf"; sourceTree = "<group>"; };
 		3DE719C12902B36E00D1A2AE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		3DF216282904310E0097EBB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DF40F462901620600E4B9D8 /* Boca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF40F492901620600E4B9D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DF40F4D2901620600E4B9D8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3DF40F4D2901620600E4B9D8 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		3DF40F522901620700E4B9D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DF40F552901620700E4B9D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF40F572901620700E4B9D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 		3DA5B4C22901652A00F562AA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3DF40F4D2901620600E4B9D8 /* LoginViewController.swift */,
-				3DA5B4D92901825D00F562AA /* LoginView.swift */,
+				3DF40F4D2901620600E4B9D8 /* AuthViewController.swift */,
+				3DA5B4D92901825D00F562AA /* AuthView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,7 +111,7 @@
 		3DA5B4C32901653B00F562AA /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				3DA5B4D2290165D500F562AA /* LoginPresenter.swift */,
+				3DA5B4D2290165D500F562AA /* AuthPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -119,7 +119,7 @@
 		3DA5B4C42901654200F562AA /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				3DA5B4D0290165C000F562AA /* LoginInteractor.swift */,
+				3DA5B4D0290165C000F562AA /* AuthInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -127,7 +127,7 @@
 		3DA5B4C52901654900F562AA /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3DA5B4CE290165B300F562AA /* LoginRouter.swift */,
+				3DA5B4CE290165B300F562AA /* AuthRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 		3DA5B4C62901655600F562AA /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				3DA5B4CC290165A800F562AA /* LoginModel.swift */,
+				3DA5B4CC290165A800F562AA /* AuthModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 		3DA5B4C72901655C00F562AA /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				3DA5B4C82901657E00F562AA /* LoginProtocols.swift */,
+				3DA5B4C82901657E00F562AA /* AuthProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 			path = Boca;
 			sourceTree = "<group>";
 		};
-		3DF40F5D2901633600E4B9D8 /* Login */ = {
+		3DF40F5D2901633600E4B9D8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				3DA5B4C72901655C00F562AA /* Protocols */,
@@ -193,7 +193,7 @@
 				3DA5B4C32901653B00F562AA /* Presenter */,
 				3DA5B4C22901652A00F562AA /* View */,
 			);
-			path = Login;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		3DF40F5E2901634B00E4B9D8 /* App */ = {
@@ -210,7 +210,7 @@
 		3DF40F5F2901635000E4B9D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3DF40F5D2901633600E4B9D8 /* Login */,
+				3DF40F5D2901633600E4B9D8 /* Auth */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -302,14 +302,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA5B4D3290165D500F562AA /* LoginPresenter.swift in Sources */,
-				3DF40F4E2901620600E4B9D8 /* LoginViewController.swift in Sources */,
-				3DA5B4C92901657E00F562AA /* LoginProtocols.swift in Sources */,
-				3DA5B4D1290165C000F562AA /* LoginInteractor.swift in Sources */,
+				3DA5B4D3290165D500F562AA /* AuthPresenter.swift in Sources */,
+				3DF40F4E2901620600E4B9D8 /* AuthViewController.swift in Sources */,
+				3DA5B4C92901657E00F562AA /* AuthProtocols.swift in Sources */,
+				3DA5B4D1290165C000F562AA /* AuthInteractor.swift in Sources */,
 				3DF40F4A2901620600E4B9D8 /* AppDelegate.swift in Sources */,
-				3DA5B4CF290165B300F562AA /* LoginRouter.swift in Sources */,
-				3DA5B4CD290165A800F562AA /* LoginModel.swift in Sources */,
-				3DA5B4DA2901825D00F562AA /* LoginView.swift in Sources */,
+				3DA5B4CF290165B300F562AA /* AuthRouter.swift in Sources */,
+				3DA5B4CD290165A800F562AA /* AuthModel.swift in Sources */,
+				3DA5B4DA2901825D00F562AA /* AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
