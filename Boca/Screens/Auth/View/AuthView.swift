@@ -93,7 +93,7 @@ class AuthView: UIView {
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.5
         
-        
+        button.addTarget(authViewController, action: #selector(authViewController?.login), for: .touchUpInside)
         
         return button
     }()

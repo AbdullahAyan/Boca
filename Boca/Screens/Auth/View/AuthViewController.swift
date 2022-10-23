@@ -17,6 +17,8 @@ class AuthViewController: UIViewController {
     var authView: AuthView?
     var authPresenter: ViewControllerToPresenterAuthProtocol?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,24 @@ class AuthViewController: UIViewController {
 
 
 extension AuthViewController: ViewToViewControllerAuthProtocol {
+    
+    @objc func login() {
+        
+        guard let authView, let email = authView.emailTextField.text,let password = authView.passwordTextField.text else {
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+          
+            if let error {
+                print(error)
+            }
+            
+            print(authResult?.user.email ?? "")
+            
+        }
+    }
+    
 
     
     

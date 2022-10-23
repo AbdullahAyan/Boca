@@ -14,6 +14,7 @@ protocol ViewToViewControllerAuthProtocol {
     var authPresenter: ViewControllerToPresenterAuthProtocol? { get set }
     
     func register()
+    func login()
     func resetPassword()
     func signInWithGoogle()
 }

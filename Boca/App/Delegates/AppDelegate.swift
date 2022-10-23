@@ -13,7 +13,6 @@ import FirebaseAuth
 import GoogleSignIn
 import AuthenticationServices
 
-// ...
       
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,10 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         FirebaseApp.configure()
-        
-        
 
-        
         setupWindow()
         
         return true
