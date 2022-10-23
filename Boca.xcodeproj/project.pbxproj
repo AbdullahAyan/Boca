@@ -32,6 +32,7 @@
 		3DF21627290420700097EBB0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF21626290420700097EBB0 /* FirebaseStorage */; };
 		3DF21629290431100097EBB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DF216282904310E0097EBB0 /* GoogleService-Info.plist */; };
 		3DF2C00B2905BF3500D6ACF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF2C00A2905BF3500D6ACF1 /* Alamofire */; };
+		3DF2C00E2905C91E00D6ACF1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF2C00D2905C91E00D6ACF1 /* Kingfisher */; };
 		3DF40F4A2901620600E4B9D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF40F492901620600E4B9D8 /* AppDelegate.swift */; };
 		3DF40F4E2901620600E4B9D8 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF40F4D2901620600E4B9D8 /* AuthViewController.swift */; };
 		3DF40F532901620700E4B9D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF40F522901620700E4B9D8 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 				3DF2C00B2905BF3500D6ACF1 /* Alamofire in Frameworks */,
 				3DE719C52902B6BF00D1A2AE /* GoogleSignIn in Frameworks */,
 				3DF21621290420700097EBB0 /* FirebaseAnalytics in Frameworks */,
+				3DF2C00E2905C91E00D6ACF1 /* Kingfisher in Frameworks */,
 				3DF21625290420700097EBB0 /* FirebaseFirestore in Frameworks */,
 				3DF21623290420700097EBB0 /* FirebaseAuth in Frameworks */,
 				3DF21627290420700097EBB0 /* FirebaseStorage in Frameworks */,
@@ -239,6 +241,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		3DF2C00F2905E0F600D6ACF1 /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FoodDetail;
+			sourceTree = "<group>";
+		};
 		3DF40F3D2901620500E4B9D8 = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +300,7 @@
 		3DF40F5F2901635000E4B9D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3DF2C00F2905E0F600D6ACF1 /* FoodDetail */,
 				3D1A360329055C7F00C1EC96 /* Menu */,
 				3DF40F5D2901633600E4B9D8 /* Auth */,
 			);
@@ -321,6 +331,7 @@
 				3DF21624290420700097EBB0 /* FirebaseFirestore */,
 				3DF21626290420700097EBB0 /* FirebaseStorage */,
 				3DF2C00A2905BF3500D6ACF1 /* Alamofire */,
+				3DF2C00D2905C91E00D6ACF1 /* Kingfisher */,
 			);
 			productName = Boca;
 			productReference = 3DF40F462901620600E4B9D8 /* Boca.app */;
@@ -355,6 +366,7 @@
 				3DE719C32902B6BF00D1A2AE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				3DF2161F290420700097EBB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				3DF2C0092905BF3500D6ACF1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3DF2C00C2905C91E00D6ACF1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 3DF40F472901620600E4B9D8 /* Products */;
 			projectDirPath = "";
@@ -643,6 +655,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		3DF2C00C2905C91E00D6ACF1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -680,6 +700,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3DF2C0092905BF3500D6ACF1 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		3DF2C00D2905C91E00D6ACF1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DF2C00C2905C91E00D6ACF1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

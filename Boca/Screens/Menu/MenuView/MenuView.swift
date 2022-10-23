@@ -11,6 +11,16 @@ class MenuView: UIView {
 
     var menuViewController: MenuViewController?
     
+    private(set) lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        
+        searchBar.placeholder = "Ne yemek istersiniz ?"
+        searchBar.autocorrectionType = .no
+        searchBar.autocapitalizationType = .none
+
+        return searchBar
+    }()
+    
     private(set) lazy var menuCollection: UICollectionView = {
         let flow = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flow)
@@ -25,11 +35,18 @@ class MenuView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .white
         
-        self.backgroundColor = .red
+        addSubview(searchBar)
+        searchBar.snp.makeConstraints { make in
+            make.top.trailing.leading.equalTo(safeAreaLayoutGuide)
+            
+        }
+        
         addSubview(menuCollection)
         menuCollection.snp.makeConstraints { make in
-            make.leading.trailing.top.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(searchBar.snp.bottom)
+            make.leading.trailing.equalTo(safeAreaLayoutGuide)
             make.bottom.equalToSuperview()
             }
 

@@ -22,6 +22,11 @@ class MenuCollectionViewCell: UICollectionViewCell {
         button.backgroundColor = .red
         button.layer.cornerRadius = 15
         
+        
+//        button.addTarget(self, action: , for: <#T##UIControl.Event#>)
+        //        TODO: -
+
+        
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 0)
         button.layer.shadowRadius = 4
@@ -33,6 +38,9 @@ class MenuCollectionViewCell: UICollectionViewCell {
         
         namelabel.textColor = .white
         namelabel.font = UIFont(name: "Mukta-Medium", size: 14)
+        
+        imageView.backgroundColor = UIColor.white.withAlphaComponent(0.9)
+        imageView.layer.cornerRadius = 15
 
     }
 }

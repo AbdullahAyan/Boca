@@ -8,7 +8,6 @@
 import Foundation
 
 class Yemekler: Codable {
-    
     class Yemek: Codable {
         let yemek_id: String?
         let yemek_adi: String?
@@ -23,6 +22,6 @@ class Yemekler: Codable {
         }
     }
     
-    var yemekler: [Yemek]?
-    var success: String!
+    let yemekler: [Yemek]?
+    let success: Int?
 }
