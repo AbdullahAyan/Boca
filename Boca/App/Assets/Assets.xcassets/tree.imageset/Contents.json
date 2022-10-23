@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "iPhone 11.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "iPhone 11@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "iPhone 11@3x.png",
+      "filename" : "f9adsW.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

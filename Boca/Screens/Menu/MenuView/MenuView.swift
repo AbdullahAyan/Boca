@@ -11,13 +11,14 @@ class MenuView: UIView {
 
     var menuViewController: MenuViewController?
     
-    private lazy var menuCollection: UICollectionView = {
+    private(set) lazy var menuCollection: UICollectionView = {
         let flow = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flow)
         collectionView.backgroundColor = .white
-        collectionView.delegate = menuViewController
-        collectionView.dataSource = menuViewController
         
+        let nibCell = UINib(nibName: "MenuCollectionViewCell", bundle: nil)
+        collectionView.register(nibCell, forCellWithReuseIdentifier: "MenuCollectionViewCell")
+                
         return collectionView
     }()
     
@@ -26,15 +27,12 @@ class MenuView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = .red
-        
-        
         addSubview(menuCollection)
         menuCollection.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(safeAreaLayoutGuide)
+            make.leading.trailing.top.equalTo(safeAreaLayoutGuide)
             make.bottom.equalToSuperview()
-            
-            make.width.height.equalTo(300)
-        }
+            }
+
         
     }
     
@@ -43,3 +41,4 @@ class MenuView: UIView {
     }
     
 }
+

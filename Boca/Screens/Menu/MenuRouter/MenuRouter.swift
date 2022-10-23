@@ -12,17 +12,18 @@ class MenuRouter: PresenterToRouterMenuProtocol {
         
 //        MARK: - VIPER Components
         let view = MenuView()
+        
         let presenter = MenuPresenter()
         let interactor = MenuInteractor()
         
 //        MARK: - View Delegates
-        
-        ref.menuView?.menuViewController = ref
-        
+        view.menuViewController = ref
+ 
 //        MARK: - ViewController Delegates
         ref.menuView = view
         ref.menuPresenter = presenter
         
+
 //        MARK: - Presenter Delegates
         presenter.menuInteractor = interactor
         presenter.menuViewController = ref
