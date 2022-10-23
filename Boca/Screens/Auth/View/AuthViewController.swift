@@ -32,24 +32,28 @@ class AuthViewController: UIViewController {
 
 extension AuthViewController: ViewToViewControllerAuthProtocol {
     
+    
+    
+    
     @objc func login() {
         
         guard let authView, let email = authView.emailTextField.text,let password = authView.passwordTextField.text else {
             return
         }
         
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             if let error {
                 print(error)
             }
-            
-            
-            
-            
-            
+            if authResult?.user.email == nil {
+                self?.authAlert(title: "Error", message: "Email or password wrong?")
+            }else {
+                self?.navigationController?.pushViewController(MenuViewController(), animated: true)
+
+
+            }
         }
     }
-    
 
     
     
@@ -80,13 +84,17 @@ extension AuthViewController: ViewToViewControllerAuthProtocol {
                                                            accessToken: authentication.accessToken)
             
 
-            Auth.auth().signIn(with: credential) { authResult, error in
-                print(authResult?.user.email as Any)
-                return
+            Auth.auth().signIn(with: credential) { [weak self] authResult, error in
+                if let error {
+                    print(error)
+                    return
+                }
+                self?.navigationController?.pushViewController(MenuViewController(), animated: true)
             }
 
         }
     }
+    
     
     
     
@@ -114,6 +122,8 @@ extension AuthViewController: ViewToViewControllerAuthProtocol {
     }
     
     
+    
+    
     @objc func register() {
         
         guard let authView, let email = authView.emailTextField.text,let password = authView.passwordTextField.text else {
@@ -124,11 +134,12 @@ extension AuthViewController: ViewToViewControllerAuthProtocol {
             if let error {
                 self?.authAlert(title: "Error", message: error.localizedDescription)
             }
+            self?.navigationController?.pushViewController(MenuViewController(), animated: true)
+
         }
-        
-        
-        
     }
+    
+    
     
     func authAlert(title: String,message: String) {
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class MenuInteractor: PresenterToInteractorMenuProtocol {
+    var menuPresenter: ViewControllerToPresenterMenuProtocol?
+    
+    
+}

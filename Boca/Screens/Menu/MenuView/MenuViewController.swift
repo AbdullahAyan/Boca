@@ -8,22 +8,39 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    
+    var menuView: MenuView?
+    
+    var menuPresenter: ViewControllerToPresenterMenuProtocol?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        MenuRouter.createModule(ref: self)
+        
+        view.backgroundColor = .red
+        navigationController?.navigationBar.backgroundColor = .red
+        view = menuView
 
-        // Do any additional setup after loading the view.
+        
+    }
+
+
+}
+
+extension MenuViewController: ViewToViewControllerMenuProtocol, UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        return cell
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }
