@@ -39,12 +39,13 @@ extension AuthViewController: ViewToViewControllerAuthProtocol {
         }
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-          
             if let error {
                 print(error)
             }
             
-            print(authResult?.user.email ?? "")
+            
+            
+            
             
         }
     }
