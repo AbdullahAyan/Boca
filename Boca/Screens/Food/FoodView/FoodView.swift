@@ -98,6 +98,7 @@ class FoodView: UIView {
         button.backgroundColor = .red
         
         button.layer.cornerRadius = 10
+        button.addTarget(foodViewController, action: #selector(foodViewController!.go), for: .touchUpInside)
     
         return button
     }()
@@ -119,6 +120,8 @@ class FoodView: UIView {
         
         return label
     }()
+    
+    
     
     
     
