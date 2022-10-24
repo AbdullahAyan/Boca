@@ -31,7 +31,7 @@ class MenuViewController: UIViewController {
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .red
-        appearance.titleTextAttributes = [.foregroundColor : UIColor.white, .font : UIFont(name: "Pacifico-Regular", size: 24)!]
+        appearance.titleTextAttributes = [.foregroundColor : UIColor.white, .font : UIFont(name: "Pacifico-Regular", size: 18)!]
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
@@ -40,7 +40,7 @@ class MenuViewController: UIViewController {
 
         getAllFoods()
         
-        title = "Boca"
+        title = "Menu"
         
     }
     
@@ -100,7 +100,8 @@ extension MenuViewController: ViewToViewControllerMenuProtocol,
     
     
     @objc func foodSelected(sender: UIButton) {
-        print(menu[sender.tag].yemek_adi)
+        print(menu[sender.tag].yemek_adi!)
+        navigationController?.pushViewController(FoodViewController(), animated: true)
     }
     
     

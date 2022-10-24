@@ -23,6 +23,7 @@
 		3D3BBE1E2906AD5F00EEECB4 /* FoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BBE1D2906AD5F00EEECB4 /* FoodInteractor.swift */; };
 		3D3BBE202906AD6B00EEECB4 /* FoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BBE1F2906AD6B00EEECB4 /* FoodEntity.swift */; };
 		3D3BBE232906AD7E00EEECB4 /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BBE222906AD7E00EEECB4 /* FoodPresenter.swift */; };
+		3D8BB23D2906DFF00069905B /* EntityButton.xib 17-55-01-003.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8BB23C2906DFF00069905B /* EntityButton.xib 17-55-01-003.xib */; };
 		3DA5B4C92901657E00F562AA /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4C82901657E00F562AA /* AuthProtocols.swift */; };
 		3DA5B4CD290165A800F562AA /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4CC290165A800F562AA /* AuthModel.swift */; };
 		3DA5B4CF290165B300F562AA /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4CE290165B300F562AA /* AuthRouter.swift */; };
@@ -63,6 +64,7 @@
 		3D3BBE1D2906AD5F00EEECB4 /* FoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInteractor.swift; sourceTree = "<group>"; };
 		3D3BBE1F2906AD6B00EEECB4 /* FoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntity.swift; sourceTree = "<group>"; };
 		3D3BBE222906AD7E00EEECB4 /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
+		3D8BB23C2906DFF00069905B /* EntityButton.xib 17-55-01-003.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EntityButton.xib 17-55-01-003.xib"; sourceTree = "<group>"; };
 		3DA5B4C82901657E00F562AA /* AuthProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
 		3DA5B4CC290165A800F562AA /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		3DA5B4CE290165B300F562AA /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				3D3BBE152906AD1700EEECB4 /* FoodView.swift */,
 				3D3BBE172906AD2C00EEECB4 /* FoodViewController.swift */,
+				3D8BB23C2906DFF00069905B /* EntityButton.xib 17-55-01-003.xib */,
 			);
 			path = FoodView;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				3D1A361C29057C6800C1EC96 /* MenuCollectionViewCell.xib in Resources */,
 				3DA5B4DE2901996F00F562AA /* Pacifico-Regular.ttf in Resources */,
 				3DA5B4E329019D6C00F562AA /* Mukta-Medium.ttf in Resources */,
+				3D8BB23D2906DFF00069905B /* EntityButton.xib 17-55-01-003.xib in Resources */,
 				3DF40F562901620700E4B9D8 /* LaunchScreen.storyboard in Resources */,
 				3DF40F532901620700E4B9D8 /* Assets.xcassets in Resources */,
 				3DF21629290431100097EBB0 /* GoogleService-Info.plist in Resources */,
