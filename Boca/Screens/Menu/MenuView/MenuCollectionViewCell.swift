@@ -9,6 +9,7 @@ import UIKit
 
 class MenuCollectionViewCell: UICollectionViewCell {
     
+    var menuViewContoller: MenuViewController!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -23,8 +24,9 @@ class MenuCollectionViewCell: UICollectionViewCell {
         button.layer.cornerRadius = 15
         
         
-//        button.addTarget(self, action: , for: <#T##UIControl.Event#>)
-        //        TODO: -
+        button.addTarget(menuViewContoller, action: #selector(menuViewContoller.foodSelected) , for: .touchUpInside)
+        
+//        TODO: -
 
         
         button.layer.shadowColor = UIColor.black.cgColor

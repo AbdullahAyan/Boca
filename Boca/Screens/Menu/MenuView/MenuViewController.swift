@@ -79,23 +79,30 @@ extension MenuViewController: ViewToViewControllerMenuProtocol,
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        let cell = MenuCollectionViewCell()
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCollectionViewCell", for: indexPath) as! MenuCollectionViewCell
         cell.namelabel.text = menu[indexPath.item].yemek_adi
         cell.priceLabel.text = menu[indexPath.item].yemek_fiyat! + "₺"
+        cell.menuViewContoller = self
+        cell.button.tag = indexPath.item
         
         let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/" + menu[indexPath.item].yemek_resim_adi!)
-//        print(menu[indexPath.item].yemek_resim_adi)
         cell.imageView.kf.setImage(with: url)
         
         return cell
     }
+    
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 120, height: 160)
     }
+    
+    
+    @objc func foodSelected(sender: UIButton) {
+        print(menu[sender.tag].yemek_adi)
+    }
+    
     
 }
 
