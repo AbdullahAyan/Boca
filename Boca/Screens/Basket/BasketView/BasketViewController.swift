@@ -22,6 +22,9 @@ class BasketViewController: UIViewController {
         title = "Sepet"
 
         BasketRouter.createModule(ref: self)
+        
+        basketView?.tableView.delegate = self
+        basketView?.tableView.dataSource = self
 
         view = basketView
     }
@@ -29,7 +32,19 @@ class BasketViewController: UIViewController {
 
 }
 
-extension BasketViewController: ViewToViewControllerBasketProtocol {
+extension BasketViewController:UITableViewDelegate,UITableViewDataSource, ViewToViewControllerBasketProtocol {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+    }
 
     
     
