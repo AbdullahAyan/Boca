@@ -13,13 +13,37 @@ class FoodView: UIView {
     
     private(set) lazy var foodImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "swift")
         
         return imageView
     }()
+    
+    private(set) lazy var foodNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Swift"
+        label.font = UIFont(name: "Mukta-Medium", size: 60)
+        label.textAlignment = .center
 
+        return label
+    }()
+    
+    private(set) lazy var foodPriceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "22 ₺"
+        label.font = UIFont(name: "Mukta-Medium", size: 30)
+        label.textAlignment = .center
+        
+        return label
+    }()
     
     private lazy var entityView: UIView = {
         var customView = UIView(frame: .infinite)
+        
+        customView.layer.cornerRadius = 10.0
+        customView.layer.masksToBounds = true
+
+        customView.layer.borderColor = UIColor.lightGray.cgColor
+        customView.layer.borderWidth = 1.5
         
         let minusButton = UIButton(frame: .infinite)
         let entityLabel = UILabel(frame: .infinite)
@@ -28,11 +52,10 @@ class FoodView: UIView {
         minusButton.setImage(UIImage(systemName: "minus"), for: .normal)
         minusButton.backgroundColor = .black
         minusButton.tintColor = .white
-        minusButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 30), forImageIn: .normal)
-    
+        minusButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 20), forImageIn: .normal)
         
-        entityLabel.text = "2"
-        entityLabel.font = UIFont(name: "Mukta-Medium", size: 30)!
+        entityLabel.text = "0"
+        entityLabel.font = UIFont(name: "Mukta-Medium", size: 20)!
         entityLabel.textAlignment = .center
         entityLabel.backgroundColor = .white
         entityLabel.textColor = .black
@@ -40,7 +63,7 @@ class FoodView: UIView {
         plusButton.setImage(UIImage(systemName: "plus"), for: .normal)
         plusButton.backgroundColor = .black
         plusButton.tintColor = .white
-        plusButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 30), forImageIn: .normal)
+        plusButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 20), forImageIn: .normal)
         
         customView.addSubview(minusButton)
         customView.addSubview(entityLabel)
@@ -63,19 +86,6 @@ class FoodView: UIView {
 
         }
         
-        customView.layer.cornerRadius = 10
-        customView.layer.cornerCurve = .circular
-        customView.layer.masksToBounds = true
-
-        customView.layer.shadowColor = UIColor.black.cgColor
-        customView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        customView.layer.shadowRadius = 3
-        customView.layer.shadowOpacity = 0.5
-        
-
-
-        
-        customView.layer.shouldRasterize = true
         return customView
     }()
     
@@ -92,6 +102,24 @@ class FoodView: UIView {
         return button
     }()
     
+    private(set) lazy var totalPriceLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "22 ₺"
+        label.font = UIFont(name: "Mukta-Medium", size: 20)
+        label.backgroundColor = .white
+        label.textAlignment = .center
+
+        
+        label.layer.cornerRadius = 10.0
+        label.layer.masksToBounds = true
+
+        label.layer.borderColor = UIColor.lightGray.cgColor
+        label.layer.borderWidth = 1.5
+        
+        return label
+    }()
+    
     
     
     
@@ -100,19 +128,46 @@ class FoodView: UIView {
         
         self.backgroundColor = .white
         
+        addSubview(foodImage)
+        foodImage.snp.makeConstraints { make in
+            make.top.left.right.equalTo(safeAreaLayoutGuide)
+            make.width.equalTo(foodImage.snp.height)
+        }
+        
+        addSubview(foodNameLabel)
+        foodNameLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(foodImage.snp.bottom).offset(10)
+        }
+        
+        addSubview(foodPriceLabel)
+        foodPriceLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(foodNameLabel.snp.bottom).offset(-20)
+        }
+        
         addSubview(addToChartbutton)
         addToChartbutton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.left.equalToSuperview().offset(30)
+            make.right.equalToSuperview().offset(-110)
             make.bottom.equalToSuperview().offset(-50)
             make.height.equalTo(50)
         }
         
+        addSubview(totalPriceLabel)
+        totalPriceLabel.snp.makeConstraints { make in
+            make.left.equalTo(addToChartbutton.snp.right).offset(-35)
+            make.right.equalToSuperview().offset(-30)
+            make.centerY.height.equalTo(addToChartbutton)
+            
+        }
+        
         addSubview(entityView)
         entityView.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
-            make.width.equalTo(300)
-            make.height.equalTo(100)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(180)
+            make.height.equalTo(60)
+            make.bottom.equalTo(addToChartbutton.snp.top).offset(-50)
 
         }
     }
@@ -121,3 +176,5 @@ class FoodView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+
