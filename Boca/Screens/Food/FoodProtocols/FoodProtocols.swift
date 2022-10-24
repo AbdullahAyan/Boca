@@ -6,3 +6,26 @@
 //
 
 import Foundation
+
+// MARK: - Main Protocols
+
+protocol ViewToViewControllerFoodProtocol {
+    var foodView: FoodView? { get set }
+    var foodPresenter: ViewControllerToPresenterFoodProtocol? { get set }
+    
+}
+
+protocol ViewControllerToPresenterFoodProtocol {
+    var foodViewController: ViewToViewControllerFoodProtocol? { get set }
+    var foodInteractor: PresenterToInteractorFoodProtocol? { get set}
+}
+
+protocol PresenterToInteractorFoodProtocol {
+    var foodPresenter: ViewControllerToPresenterFoodProtocol? { get set }
+}
+
+// MARK: - Router Protocol
+
+protocol PresenterToRouterFoodProtocol {
+    static func createModule(ref: FoodViewController)
+}

@@ -9,9 +9,15 @@ import UIKit
 
 class FoodViewController: UIViewController {
 
+//    Delegate objects
+    var foodView: FoodView?
+    var foodPresenter: ViewControllerToPresenterFoodProtocol?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        FoodRouter.createModule(ref: self)
         // Do any additional setup after loading the view.
     }
     
@@ -26,4 +32,10 @@ class FoodViewController: UIViewController {
     }
     */
 
+}
+
+extension FoodViewController: ViewToViewControllerFoodProtocol {
+
+    
+    
 }

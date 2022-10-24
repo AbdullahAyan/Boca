@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class FoodInteractor: PresenterToInteractorFoodProtocol {
+    var foodPresenter: ViewControllerToPresenterFoodProtocol?
+    
+    
+}
