@@ -23,6 +23,8 @@
 		3D3BBE1E2906AD5F00EEECB4 /* FoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BBE1D2906AD5F00EEECB4 /* FoodInteractor.swift */; };
 		3D3BBE202906AD6B00EEECB4 /* FoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BBE1F2906AD6B00EEECB4 /* FoodEntity.swift */; };
 		3D3BBE232906AD7E00EEECB4 /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BBE222906AD7E00EEECB4 /* FoodPresenter.swift */; };
+		3D893CF9290745CD00B5B496 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D893CF7290745CD00B5B496 /* BasketTableViewCell.swift */; };
+		3D893CFA290745CD00B5B496 /* BasketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D893CF8290745CD00B5B496 /* BasketTableViewCell.xib */; };
 		3DA5B4C92901657E00F562AA /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4C82901657E00F562AA /* AuthProtocols.swift */; };
 		3DA5B4CD290165A800F562AA /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4CC290165A800F562AA /* AuthModel.swift */; };
 		3DA5B4CF290165B300F562AA /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4CE290165B300F562AA /* AuthRouter.swift */; };
@@ -32,6 +34,13 @@
 		3DA5B4DA2901825D00F562AA /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5B4D92901825D00F562AA /* AuthView.swift */; };
 		3DA5B4DE2901996F00F562AA /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA5B4DD2901996F00F562AA /* Pacifico-Regular.ttf */; };
 		3DA5B4E329019D6C00F562AA /* Mukta-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA5B4E229019D6C00F562AA /* Mukta-Medium.ttf */; };
+		3DADA8D1290741A900F8E4D9 /* BasketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADA8C5290741A800F8E4D9 /* BasketRouter.swift */; };
+		3DADA8D2290741A900F8E4D9 /* BasketEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADA8C7290741A800F8E4D9 /* BasketEntity.swift */; };
+		3DADA8D3290741A900F8E4D9 /* BasketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADA8C9290741A800F8E4D9 /* BasketPresenter.swift */; };
+		3DADA8D4290741A900F8E4D9 /* BasketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADA8CB290741A800F8E4D9 /* BasketInteractor.swift */; };
+		3DADA8D5290741A900F8E4D9 /* BasketProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADA8CD290741A800F8E4D9 /* BasketProtocols.swift */; };
+		3DADA8D6290741A900F8E4D9 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADA8CF290741A900F8E4D9 /* BasketView.swift */; };
+		3DADA8D7290741A900F8E4D9 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DADA8D0290741A900F8E4D9 /* BasketViewController.swift */; };
 		3DE719C52902B6BF00D1A2AE /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 3DE719C42902B6BF00D1A2AE /* GoogleSignIn */; };
 		3DF21621290420700097EBB0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF21620290420700097EBB0 /* FirebaseAnalytics */; };
 		3DF21623290420700097EBB0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF21622290420700097EBB0 /* FirebaseAuth */; };
@@ -63,6 +72,8 @@
 		3D3BBE1D2906AD5F00EEECB4 /* FoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInteractor.swift; sourceTree = "<group>"; };
 		3D3BBE1F2906AD6B00EEECB4 /* FoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntity.swift; sourceTree = "<group>"; };
 		3D3BBE222906AD7E00EEECB4 /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
+		3D893CF7290745CD00B5B496 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		3D893CF8290745CD00B5B496 /* BasketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketTableViewCell.xib; sourceTree = "<group>"; };
 		3DA5B4C82901657E00F562AA /* AuthProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
 		3DA5B4CC290165A800F562AA /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		3DA5B4CE290165B300F562AA /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
@@ -71,6 +82,13 @@
 		3DA5B4D92901825D00F562AA /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		3DA5B4DD2901996F00F562AA /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		3DA5B4E229019D6C00F562AA /* Mukta-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mukta-Medium.ttf"; sourceTree = "<group>"; };
+		3DADA8C5290741A800F8E4D9 /* BasketRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketRouter.swift; sourceTree = "<group>"; };
+		3DADA8C7290741A800F8E4D9 /* BasketEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketEntity.swift; sourceTree = "<group>"; };
+		3DADA8C9290741A800F8E4D9 /* BasketPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketPresenter.swift; sourceTree = "<group>"; };
+		3DADA8CB290741A800F8E4D9 /* BasketInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketInteractor.swift; sourceTree = "<group>"; };
+		3DADA8CD290741A800F8E4D9 /* BasketProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketProtocols.swift; sourceTree = "<group>"; };
+		3DADA8CF290741A900F8E4D9 /* BasketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
+		3DADA8D0290741A900F8E4D9 /* BasketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		3DF216282904310E0097EBB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DF40F462901620600E4B9D8 /* Boca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF40F492901620600E4B9D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -308,6 +326,70 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		3DADA8B72907412600F8E4D9 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				3DADA8C6290741A800F8E4D9 /* BasketEntity */,
+				3DADA8CA290741A800F8E4D9 /* BasketInteractor */,
+				3DADA8C8290741A800F8E4D9 /* BasketPresenter */,
+				3DADA8CC290741A800F8E4D9 /* BasketProtocols */,
+				3DADA8C4290741A800F8E4D9 /* BasketRouter */,
+				3DADA8CE290741A900F8E4D9 /* BasketView */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		3DADA8C4290741A800F8E4D9 /* BasketRouter */ = {
+			isa = PBXGroup;
+			children = (
+				3DADA8C5290741A800F8E4D9 /* BasketRouter.swift */,
+			);
+			path = BasketRouter;
+			sourceTree = "<group>";
+		};
+		3DADA8C6290741A800F8E4D9 /* BasketEntity */ = {
+			isa = PBXGroup;
+			children = (
+				3DADA8C7290741A800F8E4D9 /* BasketEntity.swift */,
+			);
+			path = BasketEntity;
+			sourceTree = "<group>";
+		};
+		3DADA8C8290741A800F8E4D9 /* BasketPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				3DADA8C9290741A800F8E4D9 /* BasketPresenter.swift */,
+			);
+			path = BasketPresenter;
+			sourceTree = "<group>";
+		};
+		3DADA8CA290741A800F8E4D9 /* BasketInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				3DADA8CB290741A800F8E4D9 /* BasketInteractor.swift */,
+			);
+			path = BasketInteractor;
+			sourceTree = "<group>";
+		};
+		3DADA8CC290741A800F8E4D9 /* BasketProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				3DADA8CD290741A800F8E4D9 /* BasketProtocols.swift */,
+			);
+			path = BasketProtocols;
+			sourceTree = "<group>";
+		};
+		3DADA8CE290741A900F8E4D9 /* BasketView */ = {
+			isa = PBXGroup;
+			children = (
+				3DADA8CF290741A900F8E4D9 /* BasketView.swift */,
+				3DADA8D0290741A900F8E4D9 /* BasketViewController.swift */,
+				3D893CF7290745CD00B5B496 /* BasketTableViewCell.swift */,
+				3D893CF8290745CD00B5B496 /* BasketTableViewCell.xib */,
+			);
+			path = BasketView;
+			sourceTree = "<group>";
+		};
 		3DE719C02902A6E300D1A2AE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +451,7 @@
 		3DF40F5F2901635000E4B9D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3DADA8B72907412600F8E4D9 /* Basket */,
 				3D3BBE0E2906AC8300EEECB4 /* Food */,
 				3D1A360329055C7F00C1EC96 /* Menu */,
 				3DF40F5D2901633600E4B9D8 /* Auth */,
@@ -454,6 +537,7 @@
 				3D1A361C29057C6800C1EC96 /* MenuCollectionViewCell.xib in Resources */,
 				3DA5B4DE2901996F00F562AA /* Pacifico-Regular.ttf in Resources */,
 				3DA5B4E329019D6C00F562AA /* Mukta-Medium.ttf in Resources */,
+				3D893CFA290745CD00B5B496 /* BasketTableViewCell.xib in Resources */,
 				3DF40F562901620700E4B9D8 /* LaunchScreen.storyboard in Resources */,
 				3DF40F532901620700E4B9D8 /* Assets.xcassets in Resources */,
 				3DF21629290431100097EBB0 /* GoogleService-Info.plist in Resources */,
@@ -479,14 +563,22 @@
 				3D3BBE1C2906AD5400EEECB4 /* FoodRouter.swift in Sources */,
 				3DA5B4D1290165C000F562AA /* AuthInteractor.swift in Sources */,
 				3D3BBE162906AD1700EEECB4 /* FoodView.swift in Sources */,
+				3DADA8D2290741A900F8E4D9 /* BasketEntity.swift in Sources */,
 				3D3BBE232906AD7E00EEECB4 /* FoodPresenter.swift in Sources */,
+				3DADA8D6290741A900F8E4D9 /* BasketView.swift in Sources */,
 				3D3BBE202906AD6B00EEECB4 /* FoodEntity.swift in Sources */,
+				3DADA8D7290741A900F8E4D9 /* BasketViewController.swift in Sources */,
+				3DADA8D5290741A900F8E4D9 /* BasketProtocols.swift in Sources */,
 				3D1A361629055D9000C1EC96 /* MenuInteractor.swift in Sources */,
+				3DADA8D3290741A900F8E4D9 /* BasketPresenter.swift in Sources */,
+				3D893CF9290745CD00B5B496 /* BasketTableViewCell.swift in Sources */,
+				3DADA8D4290741A900F8E4D9 /* BasketInteractor.swift in Sources */,
 				3D1A360B29055D2800C1EC96 /* MenuViewController.swift in Sources */,
 				3DF40F4A2901620600E4B9D8 /* AppDelegate.swift in Sources */,
 				3D1A3618290564B100C1EC96 /* MenuView.swift in Sources */,
 				3DA5B4CF290165B300F562AA /* AuthRouter.swift in Sources */,
 				3D3BBE1A2906AD4A00EEECB4 /* FoodProtocols.swift in Sources */,
+				3DADA8D1290741A900F8E4D9 /* BasketRouter.swift in Sources */,
 				3DA5B4CD290165A800F562AA /* AuthModel.swift in Sources */,
 				3D1A361429055D8300C1EC96 /* MenuPresenter.swift in Sources */,
 				3DA5B4DA2901825D00F562AA /* AuthView.swift in Sources */,

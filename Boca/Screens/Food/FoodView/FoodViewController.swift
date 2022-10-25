@@ -25,6 +25,10 @@ class FoodViewController: UIViewController {
 
         view = foodView
     }
+    
+    @objc func go() {
+        navigationController?.pushViewController(BasketViewController(), animated: true)
+    }
 
 
 }
