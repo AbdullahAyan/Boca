@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow()
         let viewController = ProfileViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
-        let tabBarController = UITabBarController()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
