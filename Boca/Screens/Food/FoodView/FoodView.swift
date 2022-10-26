@@ -153,7 +153,7 @@ class FoodView: UIView {
         addToChartbutton.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-110)
-            make.bottom.equalToSuperview().offset(-50)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
             make.height.equalTo(50)
         }
         
