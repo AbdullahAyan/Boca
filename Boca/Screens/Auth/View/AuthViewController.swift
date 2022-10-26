@@ -17,14 +17,19 @@ class AuthViewController: UIViewController {
     var authView: AuthView?
     var authPresenter: ViewControllerToPresenterAuthProtocol?
     
+    var tabBar: UITabBarController?
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         AuthRouter.createModule(ref: self)
         view = authView
         view.backgroundColor = .white
+        
+
     }
 }
 
@@ -41,18 +46,20 @@ extension AuthViewController: ViewToViewControllerAuthProtocol {
             return
         }
         
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            if let error {
-                print(error)
-            }
-            if authResult?.user.email == nil {
-                self?.authAlert(title: "Error", message: "Email or password wrong?")
-            }else {
-                self?.navigationController?.pushViewController(MenuViewController(), animated: true)
-
-
-            }
-        }
+//        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+//            if let error {
+//                print(error)
+//            }
+//            if authResult?.user.email == nil {
+//                self?.authAlert(title: "Error", message: "Email or password wrong?")
+//            }else {
+//                self?.navigationController?.pushViewController(MenuViewController(), animated: true)
+//
+//
+//            }
+//        }
+        
+        navigationController?.pushViewController(tabBar!, animated: true)
     }
 
     

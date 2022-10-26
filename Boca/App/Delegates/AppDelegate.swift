@@ -55,7 +55,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [menuNavigationController,basketNavigationController,profileNavigationController]
         
-        window.rootViewController = tabBarController
+        let authViewController = AuthViewController()
+        let authNavigationController = UINavigationController(rootViewController: authViewController)
+        authNavigationController.setNavigationBarHidden(true, animated: true)
+
+        
+        authViewController.tabBar = tabBarController
+        tabBarController.tabBar.backgroundColor = .red
+        tabBarController.tabBar.tintColor = .white
+        tabBarController.tabBar.barTintColor = .white
+
+
+        
+        
+        
+        
+        window.rootViewController = authNavigationController
         window.makeKeyAndVisible()
         self.window = window
     }
