@@ -39,8 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupWindow() {
         let window = UIWindow()
-        let viewController = BasketViewController()
+        let viewController = ProfileViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
+        let tabBarController = UITabBarController()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window

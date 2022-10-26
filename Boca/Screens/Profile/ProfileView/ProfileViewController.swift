@@ -31,4 +31,8 @@ class ProfileViewController: UIViewController {
 
 }
 
+extension ProfileViewController: ViewToViewControllerProfileProtocol {
+    
+}
+
 
