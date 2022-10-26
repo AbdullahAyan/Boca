@@ -92,10 +92,10 @@ class FoodView: UIView {
     private lazy var addToChartbutton: UIButton = {
         let button = UIButton()
         
-        button.setTitle("Sepete Ekle", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
         button.backgroundColor = .red
+        button.setTitle("Sepete Ekle", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.setTitleColor(.white, for: .normal)
         
         button.layer.cornerRadius = 10
         button.addTarget(foodViewController, action: #selector(foodViewController!.go), for: .touchUpInside)
@@ -152,8 +152,8 @@ class FoodView: UIView {
         addSubview(addToChartbutton)
         addToChartbutton.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(30)
-            make.right.equalToSuperview().offset(-110)
-            make.bottom.equalToSuperview().offset(-50)
+            make.right.equalToSuperview().offset(-100)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
             make.height.equalTo(50)
         }
         

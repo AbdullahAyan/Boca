@@ -39,9 +39,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupWindow() {
         let window = UIWindow()
-        let viewController = ProfileViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        window.rootViewController = navigationController
+        
+        let menuViewController = MenuViewController()
+        let basketViewController = BasketViewController()
+        let profileViewController = ProfileViewController()
+        
+        menuViewController.tabBarItem = UITabBarItem(title: "Menu", image: UIImage(systemName: "menucard"), tag: 0)
+        basketViewController.tabBarItem = UITabBarItem(title: "Sepet", image: UIImage(systemName: "basket"),tag: 1)
+        profileViewController.tabBarItem = UITabBarItem(title: "Profil", image: UIImage(systemName: "person.crop.circle"),tag: 2)
+        
+        let menuNavigationController = UINavigationController(rootViewController: menuViewController)
+        let basketNavigationController = UINavigationController(rootViewController: basketViewController)
+        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [menuNavigationController,basketNavigationController,profileNavigationController]
+        
+        let authViewController = AuthViewController()
+        let authNavigationController = UINavigationController(rootViewController: authViewController)
+        authNavigationController.setNavigationBarHidden(true, animated: true)
+
+        
+        authViewController.tabBar = tabBarController
+        tabBarController.tabBar.backgroundColor = .red
+        tabBarController.tabBar.tintColor = .white
+        tabBarController.tabBar.barTintColor = .white
+
+
+        
+        
+        
+        
+        window.rootViewController = authNavigationController
         window.makeKeyAndVisible()
         self.window = window
     }
