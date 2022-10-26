@@ -14,6 +14,7 @@ class FoodViewController: UIViewController {
     var foodPresenter: ViewControllerToPresenterFoodProtocol?
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,11 +25,30 @@ class FoodViewController: UIViewController {
         FoodRouter.createModule(ref: self)
 
         view = foodView
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .red
+        appearance.titleTextAttributes = [.foregroundColor : UIColor.white, .font : UIFont(name: "Pacifico-Regular", size: 18)!]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
     }
     
+    
+    
     @objc func go() {
-        navigationController?.pushViewController(BasketViewController(), animated: true)
-    }
+        let ac = UIAlertController(title: "Ürün eklendi.", message: nil, preferredStyle: .alert)
+        let goMenu = UIAlertAction(title: "Menüye Dön", style: .default) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        let goBasket = UIAlertAction(title: "Sepete Git", style: .default) { _ in
+            self.tabBarController?.selectedIndex = 1
+        }
+        ac.addAction(goMenu)
+        ac.addAction(goBasket)
+        present(ac, animated: true)
+        }
 
 
 }

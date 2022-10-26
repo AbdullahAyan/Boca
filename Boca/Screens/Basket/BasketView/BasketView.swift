@@ -23,6 +23,7 @@ final class BasketView: UIView {
         button.setTitle("Sipariş Ver", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.setTitleColor(.white, for: .normal)
+        
         button.layer.cornerRadius = 10
         return button
     }()
@@ -60,8 +61,8 @@ final class BasketView: UIView {
         
         addSubview(orderButton)
         orderButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(40)
-            make.bottom.equalToSuperview().offset(-40)
+            make.left.equalToSuperview().offset(30)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-10)
             make.right.equalToSuperview().offset(-100)
             make.height.equalTo(50)
         }

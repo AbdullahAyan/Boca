@@ -22,10 +22,16 @@ class ProfileViewController: UIViewController {
         title = "Profile"
 
         ProfileRouter.createModule(ref: self)
-        
-
 
         view = profileView
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .red
+        appearance.titleTextAttributes = [.foregroundColor : UIColor.white, .font : UIFont(name: "Pacifico-Regular", size: 18)!]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
     }
 
 
