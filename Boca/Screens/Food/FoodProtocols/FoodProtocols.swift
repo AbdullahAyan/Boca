@@ -11,15 +11,16 @@ import Foundation
 
 protocol ViewToViewControllerFoodProtocol {
     var foodPresenter: ViewControllerToPresenterFoodProtocol? { get set }
-    
 }
 
 protocol ViewControllerToPresenterFoodProtocol {
     var foodInteractor: PresenterToInteractorFoodProtocol? { get set}
+    
+    func addToChart(food: Yemekler.Yemek, totalPrice: Double, entity: Int)
 }
 
 protocol PresenterToInteractorFoodProtocol {
-    
+    func addToChart(food: Yemekler.Yemek, totalPrice: Double, entity: Int)
 }
 
 // MARK: - Transporter Protocols

@@ -11,6 +11,24 @@ class FoodView: UIView {
 
     var foodViewController: FoodViewController?
     
+    lazy var foodPrice: Double? = {
+        let priceStr = foodPriceLabel.text?.trimmingCharacters(in: CharacterSet(charactersIn: " ₺"))
+        let priceDouble = Double(priceStr ?? "0")
+        return priceDouble
+    }()
+    
+    var totalPrice = 0.0 {
+        didSet {
+            totalPriceLabel.text = "\(totalPrice) ₺"
+        }
+    }
+    var entity = 0 {
+        didSet {
+            entityLabel.text = "\(entity)"
+            totalPrice = Double(entity) * (foodPrice ?? 0.0)
+        }
+    }
+    
     var food: Yemekler.Yemek? {
         didSet {
             let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/" + (food?.yemek_resim_adi)!)
@@ -19,6 +37,7 @@ class FoodView: UIView {
             foodNameLabel.text = food?.yemek_adi
             
             foodPriceLabel.text = (food?.yemek_fiyat)! + "₺"
+            
         }
     }
     
@@ -31,7 +50,7 @@ class FoodView: UIView {
     
     private(set) lazy var foodNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Swift"
+        label.text = ""
         label.font = UIFont(name: "Mukta-Medium", size: 60)
         label.textAlignment = .center
 
@@ -40,11 +59,23 @@ class FoodView: UIView {
     
     private(set) lazy var foodPriceLabel: UILabel = {
         let label = UILabel()
-        label.text = "22 ₺"
+        label.text = "0 ₺"
         label.font = UIFont(name: "Mukta-Medium", size: 30)
         label.textAlignment = .center
         
         return label
+    }()
+    
+    private lazy var entityLabel: UILabel = {
+        let entityLabel = UILabel(frame: .infinite)
+        
+        entityLabel.text = String(entity)
+        entityLabel.font = UIFont(name: "Mukta-Medium", size: 20)!
+        entityLabel.textAlignment = .center
+        entityLabel.backgroundColor = .white
+        entityLabel.textColor = .black
+       
+        return entityLabel
     }()
     
     private lazy var entityView: UIView = {
@@ -57,24 +88,23 @@ class FoodView: UIView {
         customView.layer.borderWidth = 1.5
         
         let minusButton = UIButton(frame: .infinite)
-        let entityLabel = UILabel(frame: .infinite)
         let plusButton = UIButton(frame: .infinite)
         
         minusButton.setImage(UIImage(systemName: "minus"), for: .normal)
         minusButton.backgroundColor = .black
         minusButton.tintColor = .white
+        minusButton.tag = 0
         minusButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 20), forImageIn: .normal)
-        
-        entityLabel.text = "0"
-        entityLabel.font = UIFont(name: "Mukta-Medium", size: 20)!
-        entityLabel.textAlignment = .center
-        entityLabel.backgroundColor = .white
-        entityLabel.textColor = .black
+        minusButton.addTarget(foodViewController, action: #selector(foodViewController?.updateEntity), for: .touchUpInside)
+
         
         plusButton.setImage(UIImage(systemName: "plus"), for: .normal)
         plusButton.backgroundColor = .black
         plusButton.tintColor = .white
+        minusButton.tag = 1
         plusButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 20), forImageIn: .normal)
+        plusButton.addTarget(foodViewController, action: #selector(foodViewController?.updateEntity), for: .touchUpInside)
+
         
         customView.addSubview(minusButton)
         customView.addSubview(entityLabel)
@@ -116,7 +146,7 @@ class FoodView: UIView {
     private(set) lazy var totalPriceLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "22 ₺"
+        label.text =  "0 ₺"
         label.font = UIFont(name: "Mukta-Medium", size: 20)
         label.backgroundColor = .white
         label.textAlignment = .center
