@@ -42,9 +42,9 @@ extension AuthViewController: ViewToViewControllerAuthProtocol {
     
     @objc func login() {
         
-        guard let authView, let email = authView.emailTextField.text,let password = authView.passwordTextField.text else {
-            return
-        }
+//        guard let authView, let email = authView.emailTextField.text,let password = authView.passwordTextField.text else {
+//            return
+//        }
         
 //        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
 //            if let error {

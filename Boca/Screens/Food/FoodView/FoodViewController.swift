@@ -12,6 +12,18 @@ class FoodViewController: UIViewController {
 //    Delegate objects
     var foodView: FoodView?
     var foodPresenter: ViewControllerToPresenterFoodProtocol?
+    var food: Yemekler.Yemek
+    
+    init(foodView: FoodView? = nil, foodPresenter: ViewControllerToPresenterFoodProtocol? = nil, food: Yemekler.Yemek) {
+        self.foodView = foodView
+        self.foodPresenter = foodPresenter
+        self.food = food
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     
@@ -23,6 +35,7 @@ class FoodViewController: UIViewController {
         title = "Yemek Detayı"
 
         FoodRouter.createModule(ref: self)
+        foodView?.initFood(food: food)
 
         view = foodView
         

@@ -11,6 +11,13 @@ class FoodView: UIView {
 
     var foodViewController: FoodViewController?
     
+    var food: Yemekler.Yemek? {
+        didSet {
+            let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/" + (food?.yemek_resim_adi)!)
+            foodImage.kf.setImage(with: url)
+        }
+    }
+    
     private(set) lazy var foodImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "swift")
@@ -177,6 +184,12 @@ class FoodView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension FoodView: ViewControllerToViewFoodProtocol {
+    func initFood(food: Yemekler.Yemek) {
+        self.food = food
     }
 }
 

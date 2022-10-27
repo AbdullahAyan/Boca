@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
     var menuPresenter: ViewControllerToPresenterMenuProtocol?
     
     var menu = [Yemekler.Yemek]()
-    var searchMenu = [Yemekler.Yemek]()
+    var constantMenu = [Yemekler.Yemek]()
     
     override func viewDidLoad() {
         navigationController?.navigationItem.setHidesBackButton(true, animated: true)
@@ -27,6 +27,8 @@ class MenuViewController: UIViewController {
         menuView?.menuCollection.delegate = self
         menuView?.menuCollection.dataSource = self
         menuView?.searchBar.delegate = self
+        menuPresenter?.menuInteractor?.getAllFoods()
+
         
         view = menuView
         view.backgroundColor = .white
@@ -40,35 +42,10 @@ class MenuViewController: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         
 
-
-        getAllFoods()
         
         title = "Menu"
         
     }
-    
-    func getAllFoods() {
-        menu.removeAll()
-        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php",method: .get).response { response in
-            if let data = response.data {
-                do {
-                    let response = try JSONDecoder().decode(Yemekler.self, from: data)
-                    if let menu = response.yemekler {
-                        self.menu = menu
-                        self.searchMenu = menu
-                        DispatchQueue.main.async {
-                            self.menuView?.menuCollection.reloadData()
-                        }
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-            
-        }
-    }
-    
-    
     
 }
 
@@ -83,13 +60,11 @@ extension MenuViewController: ViewToViewControllerMenuProtocol,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCollectionViewCell", for: indexPath) as! MenuCollectionViewCell
+        
         cell.namelabel.text = menu[indexPath.item].yemek_adi
         cell.priceLabel.text = menu[indexPath.item].yemek_fiyat! + "₺"
-        cell.menuViewContoller = self
         cell.button.tag = indexPath.item
-        
-        let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/" + menu[indexPath.item].yemek_resim_adi!)
-        cell.imageView.kf.setImage(with: url)
+        menuPresenter?.setImage(imageView: cell.imageView, foodName: menu[indexPath.item].yemek_resim_adi!)
         
         return cell
     }
@@ -103,8 +78,7 @@ extension MenuViewController: ViewToViewControllerMenuProtocol,
     
     
     @objc func foodSelected(sender: UIButton) {
-        print(menu[sender.tag].yemek_adi!)
-        navigationController?.pushViewController(FoodViewController(), animated: true)
+        navigationController?.pushViewController(FoodViewController(food: menu[sender.tag]), animated: true)
     }
     
     
@@ -112,16 +86,19 @@ extension MenuViewController: ViewToViewControllerMenuProtocol,
 
 extension MenuViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        menu.removeAll()
-        if searchText == "" {
-            menu = searchMenu
-        }
-        for food in searchMenu {
-            if food.yemek_adi!.lowercased().contains(searchText.lowercased())  {
-                menu.append(food)
-            }
-        }
-        
+        menuPresenter?.filterMenu(constantMenu: constantMenu, menu: menu, searchText: searchText)
         self.menuView?.menuCollection.reloadData()
     }
+}
+
+
+extension MenuViewController: PresenterToViewControllerMenuProtocol {
+    func sendMenuToViewController(menu: [Yemekler.Yemek]) {
+        self.menu = menu
+        self.constantMenu = menu
+        self.menuView?.menuCollection.reloadData()
+    }
+    
+
+
 }

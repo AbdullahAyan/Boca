@@ -2,9 +2,11 @@
 
 Somethings i have to do.
 
+## Yemek Detayı Görme
+-  
 
+## Detayda Adet Seçebilme
+## Seçilen Adet ile Yemeği Sepete Ekleme
+## Sepetteki Yemekleri Görüntüleme
+## Sepetten Yemek Silme
 
-## Topics
-
-### TabBarConroller ekle
-- <!--@START_MENU_TOKEN@-->``Symbol``<!--@END_MENU_TOKEN@-->

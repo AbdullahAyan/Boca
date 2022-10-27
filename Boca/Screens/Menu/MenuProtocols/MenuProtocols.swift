@@ -6,22 +6,40 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Main Protocols
 
 protocol ViewToViewControllerMenuProtocol {
-    var menuView: MenuView? { get set }
     var menuPresenter: ViewControllerToPresenterMenuProtocol? { get set }
     
 }
 
 protocol ViewControllerToPresenterMenuProtocol {
-    var menuViewController: ViewToViewControllerMenuProtocol? { get set }
+    var menuViewController: PresenterToViewControllerMenuProtocol? { get set }
     var menuInteractor: PresenterToInteractorMenuProtocol? { get set}
+    
+    func getAllFoods()
+    func setImage(imageView: UIImageView, foodName: String)
+    func filterMenu(constantMenu: [Yemekler.Yemek],  menu: [Yemekler.Yemek], searchText: String)
 }
 
 protocol PresenterToInteractorMenuProtocol {
-    var menuPresenter: ViewControllerToPresenterMenuProtocol? { get set }
+    var menuPresenter: InteractorToPresenterMenuProtocol? { get set }
+    
+    func getAllFoods()
+    func setImage(imageView: UIImageView, foodName: String)
+    func filterMenu(constantMenu: [Yemekler.Yemek],  menu: [Yemekler.Yemek], searchText: String)
+}
+
+// MARK: - Transporter Protocols
+
+protocol InteractorToPresenterMenuProtocol {
+    func sendMenuToPresenter(menu: [Yemekler.Yemek])
+}
+
+protocol PresenterToViewControllerMenuProtocol {
+    func sendMenuToViewController(menu: [Yemekler.Yemek])
 }
 
 // MARK: - Router Protocol

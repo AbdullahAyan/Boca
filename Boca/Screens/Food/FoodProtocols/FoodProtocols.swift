@@ -24,6 +24,13 @@ protocol PresenterToInteractorFoodProtocol {
     var foodPresenter: ViewControllerToPresenterFoodProtocol? { get set }
 }
 
+// MARK: - Transporter Protocols
+
+protocol ViewControllerToViewFoodProtocol {
+    func initFood(food: Yemekler.Yemek)
+}
+
+
 // MARK: - Router Protocol
 
 protocol PresenterToRouterFoodProtocol {
