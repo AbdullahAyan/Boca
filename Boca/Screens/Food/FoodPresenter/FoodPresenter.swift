@@ -7,9 +7,7 @@
 
 import Foundation
 
-class FoodPresenter: ViewControllerToPresenterFoodProtocol {
-    var foodViewController: ViewToViewControllerFoodProtocol?
-    
+class FoodPresenter: ViewControllerToPresenterFoodProtocol {    
     var foodInteractor: PresenterToInteractorFoodProtocol?
     
     

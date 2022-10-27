@@ -16,8 +16,6 @@ class MenuViewController: UIViewController {
     var menu = [Yemekler.Yemek]()
     
     override func viewDidLoad() {
-        navigationController?.navigationItem.setHidesBackButton(true, animated: true)
-        
         super.viewDidLoad()
         
         MenuRouter.createModule(ref: self)
@@ -25,6 +23,7 @@ class MenuViewController: UIViewController {
         menuView?.menuCollection.delegate = self
         menuView?.menuCollection.dataSource = self
         menuView?.searchBar.delegate = self
+        
         menuPresenter?.menuInteractor?.getAllFoods()
         
         view = menuView
@@ -38,7 +37,6 @@ class MenuViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         
-
         title = "Menu"
     }
 }

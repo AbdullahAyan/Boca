@@ -8,15 +8,12 @@
 import UIKit
 
 class FoodViewController: UIViewController {
-
-//    Delegate objects
     var foodView: FoodView?
     var foodPresenter: ViewControllerToPresenterFoodProtocol?
+   
     var food: Yemekler.Yemek
     
-    init(foodView: FoodView? = nil, foodPresenter: ViewControllerToPresenterFoodProtocol? = nil, food: Yemekler.Yemek) {
-        self.foodView = foodView
-        self.foodPresenter = foodPresenter
+    init(food: Yemekler.Yemek) {
         self.food = food
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,8 +21,6 @@ class FoodViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +31,6 @@ class FoodViewController: UIViewController {
 
         FoodRouter.createModule(ref: self)
         foodView?.initFood(food: food)
-
         view = foodView
         
         let appearance = UINavigationBarAppearance()
@@ -50,7 +44,7 @@ class FoodViewController: UIViewController {
     
     
     
-    @objc func go() {
+    @objc func addToChart() {
         let ac = UIAlertController(title: "Ürün eklendi.", message: nil, preferredStyle: .alert)
         let goMenu = UIAlertAction(title: "Menüye Dön", style: .default) { _ in
             self.navigationController?.popViewController(animated: true)

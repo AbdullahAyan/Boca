@@ -15,6 +15,10 @@ class FoodView: UIView {
         didSet {
             let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/" + (food?.yemek_resim_adi)!)
             foodImage.kf.setImage(with: url)
+            
+            foodNameLabel.text = food?.yemek_adi
+            
+            foodPriceLabel.text = (food?.yemek_fiyat)! + "₺"
         }
     }
     
@@ -90,7 +94,6 @@ class FoodView: UIView {
             make.top.bottom.right.equalToSuperview()
             make.left.equalTo(entityLabel.snp.right)
             make.width.equalTo(entityLabel)
-
         }
         
         return customView
@@ -105,7 +108,7 @@ class FoodView: UIView {
         button.setTitleColor(.white, for: .normal)
         
         button.layer.cornerRadius = 10
-        button.addTarget(foodViewController, action: #selector(foodViewController!.go), for: .touchUpInside)
+        button.addTarget(foodViewController, action: #selector(foodViewController!.addToChart), for: .touchUpInside)
     
         return button
     }()
@@ -117,7 +120,6 @@ class FoodView: UIView {
         label.font = UIFont(name: "Mukta-Medium", size: 20)
         label.backgroundColor = .white
         label.textAlignment = .center
-
         
         label.layer.cornerRadius = 10.0
         label.layer.masksToBounds = true
@@ -127,10 +129,6 @@ class FoodView: UIView {
         
         return label
     }()
-    
-    
-    
-    
     
     
     override init(frame: CGRect) {
@@ -169,7 +167,6 @@ class FoodView: UIView {
             make.left.equalTo(addToChartbutton.snp.right).offset(-35)
             make.right.equalToSuperview().offset(-30)
             make.centerY.height.equalTo(addToChartbutton)
-            
         }
         
         addSubview(entityView)
@@ -178,7 +175,6 @@ class FoodView: UIView {
             make.width.equalTo(180)
             make.height.equalTo(60)
             make.bottom.equalTo(addToChartbutton.snp.top).offset(-50)
-
         }
     }
     
@@ -192,5 +188,3 @@ extension FoodView: ViewControllerToViewFoodProtocol {
         self.food = food
     }
 }
-
-

@@ -27,10 +27,7 @@ class FoodRouter: PresenterToRouterFoodProtocol {
 
 //        MARK: - Presenter Delegates
         presenter.foodInteractor = interactor
-        presenter.foodViewController = ref
 
-//        MARK: - Interactor Delegates
-        interactor.foodPresenter = presenter
         
     }
 }

@@ -40,7 +40,6 @@ class MenuView: UIView {
         addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
             make.top.trailing.leading.equalTo(safeAreaLayoutGuide)
-            
         }
         
         addSubview(menuCollection)
@@ -49,13 +48,9 @@ class MenuView: UIView {
             make.leading.trailing.equalTo(safeAreaLayoutGuide)
             make.bottom.equalToSuperview()
             }
-
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
-
