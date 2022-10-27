@@ -12,7 +12,6 @@ import UIKit
 
 protocol ViewToViewControllerMenuProtocol {
     var menuPresenter: ViewControllerToPresenterMenuProtocol? { get set }
-    
 }
 
 protocol ViewControllerToPresenterMenuProtocol {
@@ -21,7 +20,7 @@ protocol ViewControllerToPresenterMenuProtocol {
     
     func getAllFoods()
     func setImage(imageView: UIImageView, foodName: String)
-    func filterMenu(constantMenu: [Yemekler.Yemek],  menu: [Yemekler.Yemek], searchText: String)
+    func filterMenu(menu: [Yemekler.Yemek], searchText: String)
 }
 
 protocol PresenterToInteractorMenuProtocol {
@@ -29,7 +28,7 @@ protocol PresenterToInteractorMenuProtocol {
     
     func getAllFoods()
     func setImage(imageView: UIImageView, foodName: String)
-    func filterMenu(constantMenu: [Yemekler.Yemek],  menu: [Yemekler.Yemek], searchText: String)
+    func filterMenu(menu: [Yemekler.Yemek], searchText: String)
 }
 
 // MARK: - Transporter Protocols

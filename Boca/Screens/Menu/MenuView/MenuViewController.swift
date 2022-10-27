@@ -8,18 +8,16 @@
 import UIKit
 import Alamofire
 import Kingfisher
+
 class MenuViewController: UIViewController {
-    
     var menuView: MenuView?
-    
     var menuPresenter: ViewControllerToPresenterMenuProtocol?
     
     var menu = [Yemekler.Yemek]()
-    var constantMenu = [Yemekler.Yemek]()
     
     override func viewDidLoad() {
         navigationController?.navigationItem.setHidesBackButton(true, animated: true)
-
+        
         super.viewDidLoad()
         
         MenuRouter.createModule(ref: self)
@@ -28,7 +26,6 @@ class MenuViewController: UIViewController {
         menuView?.menuCollection.dataSource = self
         menuView?.searchBar.delegate = self
         menuPresenter?.menuInteractor?.getAllFoods()
-
         
         view = menuView
         view.backgroundColor = .white
@@ -42,18 +39,13 @@ class MenuViewController: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         
 
-        
         title = "Menu"
-        
     }
-    
 }
 
-extension MenuViewController: ViewToViewControllerMenuProtocol,
-                              UICollectionViewDelegate,
-                              UICollectionViewDataSource,
-                              UICollectionViewDelegateFlowLayout {
-    
+extension MenuViewController: ViewToViewControllerMenuProtocol {}
+
+extension MenuViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menu.count
     }
@@ -69,25 +61,19 @@ extension MenuViewController: ViewToViewControllerMenuProtocol,
         return cell
     }
     
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 120, height: 160)
     }
-    
     
     @objc func foodSelected(sender: UIButton) {
         navigationController?.pushViewController(FoodViewController(food: menu[sender.tag]), animated: true)
     }
-    
-    
 }
+
 
 extension MenuViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        menuPresenter?.filterMenu(constantMenu: constantMenu, menu: menu, searchText: searchText)
-        self.menuView?.menuCollection.reloadData()
+        menuPresenter?.filterMenu(menu: menu, searchText: searchText)
     }
 }
 
@@ -95,10 +81,6 @@ extension MenuViewController: UISearchBarDelegate {
 extension MenuViewController: PresenterToViewControllerMenuProtocol {
     func sendMenuToViewController(menu: [Yemekler.Yemek]) {
         self.menu = menu
-        self.constantMenu = menu
         self.menuView?.menuCollection.reloadData()
     }
-    
-
-
 }

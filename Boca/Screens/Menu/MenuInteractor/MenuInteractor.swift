@@ -12,11 +12,9 @@ import UIKit
 
 class MenuInteractor {
     var menuPresenter: InteractorToPresenterMenuProtocol?
-    
 }
 
 extension MenuInteractor: PresenterToInteractorMenuProtocol {
-    
     func getAllFoods() {
         AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php",method: .get).response { response in
             if let data = response.data {
@@ -39,19 +37,18 @@ extension MenuInteractor: PresenterToInteractorMenuProtocol {
     }
     
     
-    func filterMenu(constantMenu: [Yemekler.Yemek],  menu: [Yemekler.Yemek], searchText: String) {
+    func filterMenu(menu: [Yemekler.Yemek], searchText: String) {
         var menu = menu
+        let searchMenu = menu
         menu.removeAll()
         if searchText == "" {
             getAllFoods()
         }
-        for food in constantMenu {
+        for food in searchMenu {
             if food.yemek_adi!.lowercased().contains(searchText.lowercased())  {
                 menu.append(food)
             }
         }
-        
         menuPresenter?.sendMenuToPresenter(menu: menu)
     }
-
 }
