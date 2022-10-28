@@ -18,9 +18,11 @@ class FoodViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,6 @@ class FoodViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
     }
-    
     
     
     @objc func addToChart() {
@@ -74,6 +75,7 @@ class FoodViewController: UIViewController {
         }
     }
     
+    
     @objc func updateEntity(sender: UIButton){
         if sender.tag == 0 {
             foodView?.entity += 1
@@ -91,8 +93,4 @@ class FoodViewController: UIViewController {
     
 }
 
-extension FoodViewController: ViewToViewControllerFoodProtocol {
-    
-    
-    
-}
+extension FoodViewController: ViewToViewControllerFoodProtocol {}

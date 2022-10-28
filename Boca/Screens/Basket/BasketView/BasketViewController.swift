@@ -9,10 +9,8 @@ import UIKit
 
 class BasketViewController: UIViewController {
 
-//    Delegate objects
     var basketView: BasketView?
     var basketPresenter: ViewControllerToPresenterBasketProtocol?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +34,6 @@ class BasketViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
     }
-
-
 }
 
 extension BasketViewController:UITableViewDelegate,UITableViewDataSource, ViewToViewControllerBasketProtocol {
@@ -46,14 +42,14 @@ extension BasketViewController:UITableViewDelegate,UITableViewDataSource, ViewTo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BasketTableViewCell
+        cell.buttonTapped = {
+            tableView.reloadData()
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
-
-    
-    
 }
