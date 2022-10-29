@@ -23,11 +23,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         button.backgroundColor = .red
         button.layer.cornerRadius = 15
         
-        
         button.addTarget(menuViewContoller, action: #selector(menuViewContoller.foodSelected) , for: .touchUpInside)
-        
-//        TODO: -
-
         
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -38,8 +34,10 @@ class MenuCollectionViewCell: UICollectionViewCell {
         priceLabel.textColor = .white
         priceLabel.font = UIFont(name: "Mukta-Medium", size: 17)
         
+        
         namelabel.textColor = .white
         namelabel.font = UIFont(name: "Mukta-Medium", size: 14)
+        
         
         imageView.backgroundColor = UIColor.white.withAlphaComponent(0.9)
         imageView.layer.cornerRadius = 15

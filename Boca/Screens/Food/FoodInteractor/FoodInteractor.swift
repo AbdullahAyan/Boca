@@ -7,8 +7,10 @@
 
 import Foundation
 
-class FoodInteractor: PresenterToInteractorFoodProtocol {
-    var foodPresenter: ViewControllerToPresenterFoodProtocol?
-    
-    
+class FoodInteractor {}
+
+extension FoodInteractor: PresenterToInteractorFoodProtocol {
+    func addToChart(food: Yemekler.Yemek, totalPrice: Double, entity: Int) {
+        print("added")
+    }
 }

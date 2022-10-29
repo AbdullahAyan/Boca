@@ -12,9 +12,26 @@ class BasketTableViewCell: UITableViewCell {
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodPriceLabel: UILabel!
-    @IBOutlet weak var foodAmountLabel: UILabel!
-    @IBOutlet weak var minusButton: UIButton!
-    @IBOutlet weak var plusButton: UIButton!
+    
+    var buttonTapped: () -> () = {}
+    
+    var entity = 0 {
+        didSet {
+            entityLabel.text = "\(entity)"
+        }
+    }
+    
+    private(set) lazy var entityLabel: UILabel = {
+        let entityLabel = UILabel(frame: .infinite)
+        
+        entityLabel.text = "0"
+        entityLabel.font = UIFont(name: "Mukta-Medium", size: 20)!
+        entityLabel.textAlignment = .center
+        entityLabel.backgroundColor = .white
+        entityLabel.textColor = .black
+        
+        return entityLabel
+    }()
     
     private lazy var entityView: UIView = {
         var customView = UIView(frame: .infinite)
@@ -33,6 +50,8 @@ class BasketTableViewCell: UITableViewCell {
         minusButton.backgroundColor = .black
         minusButton.tintColor = .white
         minusButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 12), forImageIn: .normal)
+        minusButton.tag = 0
+        minusButton.addTarget(self, action: #selector(amountButtonClicked), for: .touchUpInside)
         
         entityLabel.text = "0"
         entityLabel.font = UIFont(name: "Mukta-Medium", size: 20)!
@@ -44,6 +63,9 @@ class BasketTableViewCell: UITableViewCell {
         plusButton.backgroundColor = .black
         plusButton.tintColor = .white
         plusButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 12), forImageIn: .normal)
+        plusButton.tag = 1
+        plusButton.addTarget(self, action: #selector(amountButtonClicked), for: .touchUpInside)
+
         
         customView.addSubview(minusButton)
         customView.addSubview(entityLabel)
@@ -82,8 +104,15 @@ class BasketTableViewCell: UITableViewCell {
 
     }
     
-    @IBAction func amountButtonClicked(_ sender: Any) {
-        
+    @objc func amountButtonClicked(sender: UIButton) {
+        if sender.tag == 0 {
+            buttonTapped()
+            entity -= 1
+        } else {
+            buttonTapped()
+            entity += 1
+            print(entity)
+        }
     }
     
 }

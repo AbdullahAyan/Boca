@@ -13,7 +13,6 @@ class FoodRouter: PresenterToRouterFoodProtocol {
         
 //        MARK: - VIPER Components
         let view = FoodView()
-        
         let presenter = FoodPresenter()
         let interactor = FoodInteractor()
         
@@ -27,10 +26,6 @@ class FoodRouter: PresenterToRouterFoodProtocol {
 
 //        MARK: - Presenter Delegates
         presenter.foodInteractor = interactor
-        presenter.foodViewController = ref
-
-//        MARK: - Interactor Delegates
-        interactor.foodPresenter = presenter
         
     }
 }

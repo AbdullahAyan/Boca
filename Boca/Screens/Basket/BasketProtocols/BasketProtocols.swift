@@ -10,19 +10,33 @@ import Foundation
 // MARK: - Main Protocols
 
 protocol ViewToViewControllerBasketProtocol {
-    var basketView: BasketView? { get set }
     var basketPresenter: ViewControllerToPresenterBasketProtocol? { get set }
     
 }
 
 protocol ViewControllerToPresenterBasketProtocol {
-    var basketViewController: ViewToViewControllerBasketProtocol? { get set }
     var basketInteractor: PresenterToInteractorBasketProtocol? { get set}
+    func changeEntityOf()
+    func updateOrder()
 }
 
 protocol PresenterToInteractorBasketProtocol {
-    var basketPresenter: ViewControllerToPresenterBasketProtocol? { get set }
+    func changeEntityOf()
+    func updateOrder()
 }
+// MARK: - Transporter Protocols
+
+protocol InteractorToPresenter {
+    var basketViewController: PresenterToViewControllerBasketProtocol { get set }
+    func sendOrderToView()
+}
+
+protocol PresenterToViewControllerBasketProtocol{
+    func sendOrderToView()
+}
+
+
+
 
 // MARK: - Router Protocol
 

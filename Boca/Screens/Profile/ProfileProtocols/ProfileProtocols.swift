@@ -10,19 +10,28 @@ import Foundation
 // MARK: - Main Protocols
 
 protocol ViewToViewControllerProfileProtocol {
-    var profileView: ProfileView? { get set }
     var profilePresenter: ViewControllerToPresenterProfileProtocol? { get set }
-    
 }
 
 protocol ViewControllerToPresenterProfileProtocol {
-    var profileViewController: ViewToViewControllerProfileProtocol? { get set }
     var profileInteractor: PresenterToInteractorProfileProtocol? { get set}
 }
 
 protocol PresenterToInteractorProfileProtocol {
-    var profilePresenter: ViewControllerToPresenterProfileProtocol? { get set }
 }
+
+// MARK: - Transporter Protocols
+
+protocol InteractorToPresenterProfileProtocol {
+    var profileViewControllerr: PresenterToViewControllerProfileProtocol? { get set }
+    
+}
+
+protocol PresenterToViewControllerProfileProtocol {
+}
+
+
+
 
 // MARK: - Router Protocol
 

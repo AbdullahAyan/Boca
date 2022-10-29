@@ -7,8 +7,10 @@
 
 import Foundation
 
-class BasketInteractor: PresenterToInteractorBasketProtocol {
+class BasketInteractor {
     var basketPresenter: ViewControllerToPresenterBasketProtocol?
-    
+}
+
+extension BasketInteractor: PresenterToInteractorBasketProtocol {
     
 }

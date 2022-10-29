@@ -12,7 +12,7 @@ final class BasketView: UIView {
     var basketViewController: BasketViewController?
     
     private(set) lazy var tableView: UITableView = {
-       let tableView = UITableView()
+        let tableView = UITableView()
         
         return tableView
     }()
@@ -36,20 +36,15 @@ final class BasketView: UIView {
         label.backgroundColor = .white
         label.textAlignment = .center
 
-        
         label.layer.cornerRadius = 10.0
         label.layer.masksToBounds = true
 
         label.layer.borderColor = UIColor.lightGray.cgColor
         label.layer.borderWidth = 1.5
         
-        
         return label
     }()
-    
 
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,12 +74,6 @@ final class BasketView: UIView {
             make.top.left.right.equalToSuperview()
             make.bottom.equalTo(orderButton.snp.top).offset(-10)
         }
-        
-
-            
-        
-        
-
     }
     
     required init?(coder: NSCoder) {

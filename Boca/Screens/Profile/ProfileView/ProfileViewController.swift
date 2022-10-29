@@ -9,10 +9,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-//    Delegate objects
     var profileView: ProfileView?
     var profilePresenter: ViewControllerToPresenterProfileProtocol?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +31,6 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
     }
-
-
 }
 
 extension ProfileViewController: ViewToViewControllerProfileProtocol {

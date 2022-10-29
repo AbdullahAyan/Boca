@@ -10,19 +10,25 @@ import Foundation
 // MARK: - Main Protocols
 
 protocol ViewToViewControllerFoodProtocol {
-    var foodView: FoodView? { get set }
     var foodPresenter: ViewControllerToPresenterFoodProtocol? { get set }
-    
 }
 
 protocol ViewControllerToPresenterFoodProtocol {
-    var foodViewController: ViewToViewControllerFoodProtocol? { get set }
     var foodInteractor: PresenterToInteractorFoodProtocol? { get set}
+    
+    func addToChart(food: Yemekler.Yemek, totalPrice: Double, entity: Int)
 }
 
 protocol PresenterToInteractorFoodProtocol {
-    var foodPresenter: ViewControllerToPresenterFoodProtocol? { get set }
+    func addToChart(food: Yemekler.Yemek, totalPrice: Double, entity: Int)
 }
+
+// MARK: - Transporter Protocols
+
+protocol ViewControllerToViewFoodProtocol {
+    func initFood(food: Yemekler.Yemek)
+}
+
 
 // MARK: - Router Protocol
 

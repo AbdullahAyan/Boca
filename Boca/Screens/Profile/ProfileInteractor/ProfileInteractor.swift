@@ -7,8 +7,10 @@
 
 import Foundation
 
-class ProfileInteractor: PresenterToInteractorProfileProtocol {
+class ProfileInteractor {
     var profilePresenter: ViewControllerToPresenterProfileProtocol?
-    
+}
+
+extension ProfileInteractor: PresenterToInteractorProfileProtocol {
     
 }
