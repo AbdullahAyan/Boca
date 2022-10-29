@@ -6,33 +6,42 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Main Protocols
 
 protocol ViewToViewControllerBasketProtocol {
     var basketPresenter: ViewControllerToPresenterBasketProtocol? { get set }
-    
+
 }
 
 protocol ViewControllerToPresenterBasketProtocol {
     var basketInteractor: PresenterToInteractorBasketProtocol? { get set}
-    func changeEntityOf()
-    func updateOrder()
+    
+    func getBasket()
+    func updateBasket(basket: [Basket.BasketFood])
+    func deleteBasketFood(basketFoodId: String)
+    func setImage(imageView: UIImageView, foodName: String)
 }
 
 protocol PresenterToInteractorBasketProtocol {
-    func changeEntityOf()
-    func updateOrder()
+    var basketPresenter: InteractorToPresenterBasketProtocol? { get set }
+    
+    func getBasket()
+    func updateBasket(basket: [Basket.BasketFood])
+    func deleteBasketFood(basketFoodId: String)
+    func setImage(imageView: UIImageView, foodName: String)
 }
 // MARK: - Transporter Protocols
 
-protocol InteractorToPresenter {
-    var basketViewController: PresenterToViewControllerBasketProtocol { get set }
-    func sendOrderToView()
+protocol InteractorToPresenterBasketProtocol {
+    var basketViewController: PresenterToViewControllerBasketProtocol? { get set }
+    
+    func sendBasketToViewController(basket: [Basket.BasketFood])
 }
 
 protocol PresenterToViewControllerBasketProtocol{
-    func sendOrderToView()
+    func sendBasketToViewController(basket: [Basket.BasketFood])
 }
 
 

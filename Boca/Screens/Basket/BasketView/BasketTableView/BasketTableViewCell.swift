@@ -12,8 +12,8 @@ class BasketTableViewCell: UITableViewCell {
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodPriceLabel: UILabel!
-    
-    var buttonTapped: () -> () = {}
+            
+    var entityChanged: (String) -> () = { change in}
     
     var entity = 0 {
         didSet {
@@ -21,15 +21,14 @@ class BasketTableViewCell: UITableViewCell {
         }
     }
     
-    private(set) lazy var entityLabel: UILabel = {
+    var entityLabel: UILabel = {
         let entityLabel = UILabel(frame: .infinite)
-        
         entityLabel.text = "0"
         entityLabel.font = UIFont(name: "Mukta-Medium", size: 20)!
         entityLabel.textAlignment = .center
         entityLabel.backgroundColor = .white
         entityLabel.textColor = .black
-        
+
         return entityLabel
     }()
     
@@ -43,7 +42,6 @@ class BasketTableViewCell: UITableViewCell {
         customView.layer.borderWidth = 1.5
         
         let minusButton = UIButton(frame: .infinite)
-        let entityLabel = UILabel(frame: .infinite)
         let plusButton = UIButton(frame: .infinite)
         
         minusButton.setImage(UIImage(systemName: "minus"), for: .normal)
@@ -106,12 +104,11 @@ class BasketTableViewCell: UITableViewCell {
     
     @objc func amountButtonClicked(sender: UIButton) {
         if sender.tag == 0 {
-            buttonTapped()
             entity -= 1
+            entityChanged("-")
         } else {
-            buttonTapped()
             entity += 1
-            print(entity)
+            entityChanged("+")
         }
     }
     

@@ -58,18 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let authViewController = AuthViewController()
         let authNavigationController = UINavigationController(rootViewController: authViewController)
         authNavigationController.setNavigationBarHidden(true, animated: true)
-
         
-        authViewController.tabBar = tabBarController
         tabBarController.tabBar.backgroundColor = .red
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.barTintColor = .white
+        authViewController.tabBar = tabBarController
 
-
-        
-        
-        
-        
         window.rootViewController = authNavigationController
         window.makeKeyAndVisible()
         self.window = window

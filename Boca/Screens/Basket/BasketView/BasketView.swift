@@ -13,7 +13,7 @@ final class BasketView: UIView {
     
     private(set) lazy var tableView: UITableView = {
         let tableView = UITableView()
-        
+        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -28,10 +28,10 @@ final class BasketView: UIView {
         return button
     }()
     
-    private lazy var totalPriceLabel: UILabel = {
+    private(set) lazy var totalPriceLabel: UILabel = {
         let label = UILabel()
 
-        label.text = "44 ₺"
+        label.text = "0 ₺"
         label.font = UIFont(name: "Mukta-Medium", size: 20)
         label.backgroundColor = .white
         label.textAlignment = .center

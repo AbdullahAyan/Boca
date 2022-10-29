@@ -41,26 +41,26 @@ extension AuthViewController: ViewToViewControllerAuthProtocol {
     
     
     @objc func login() {
-        
-//        guard let authView, let email = authView.emailTextField.text,let password = authView.passwordTextField.text else {
-//            return
-//        }
-        
-//        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-//            if let error {
-//                print(error)
-//            }
-//            if authResult?.user.email == nil {
-//                self?.authAlert(title: "Error", message: "Email or password wrong?")
-//            }else {
-//                self?.navigationController?.pushViewController(MenuViewController(), animated: true)
-//
-//
-//            }
-//        }
-        
-        navigationController?.pushViewController(tabBar!, animated: true)
+
+        guard let authView, let email = authView.emailTextField.text,let password = authView.passwordTextField.text else {
+            return
+        }
+
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            if let error {
+                print(error)
+            }
+            if authResult?.user.email == nil {
+                self?.authAlert(title: "Error", message: "Email or password wrong?")
+            }else {
+                User.email = (authResult?.user.email)!
+                self?.navigationController?.pushViewController(MenuViewController(), animated: true)
+
+
+            }
+        }
     }
+    
 
     
     

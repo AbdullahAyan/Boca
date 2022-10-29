@@ -6,21 +6,46 @@
 //
 
 import Foundation
+import UIKit
+import Alamofire
 
 class BasketPresenter {
-    var basketViewController: ViewToViewControllerBasketProtocol?
+    var basketViewController: PresenterToViewControllerBasketProtocol?
     var basketInteractor: PresenterToInteractorBasketProtocol?
 }
 
 extension BasketPresenter: ViewControllerToPresenterBasketProtocol {
-    func changeEntityOf() {
-        
-    }
-    
-    func updateOrder() {
-        
-    }
+
     
 
+    
+
+    
+    func setImage(imageView: UIImageView, foodName: String) {
+        basketInteractor?.setImage(imageView: imageView, foodName: foodName)
+    }
+    
+    func getBasket() {
+        basketInteractor?.getBasket()
+    }
+    
+    func updateBasket(basket: [Basket.BasketFood]) {
+        basketInteractor?.updateBasket(basket: basket)
+    }
+    
+    func deleteBasketFood(basketFoodId: String) {
+        basketInteractor?.deleteBasketFood(basketFoodId: basketFoodId)
+    }
+    
+    
+
+    
+}
+
+extension BasketPresenter: InteractorToPresenterBasketProtocol {
+    func sendBasketToViewController(basket: [Basket.BasketFood]) {
+        basketViewController?.sendBasketToViewController(basket: basket)
+    }
+    
     
 }

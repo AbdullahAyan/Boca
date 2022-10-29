@@ -22,6 +22,7 @@ class FoodView: UIView {
             totalPriceLabel.text = "\(totalPrice) ₺"
         }
     }
+    
     var entity = 0 {
         didSet {
             entityLabel.text = "\(entity)"
