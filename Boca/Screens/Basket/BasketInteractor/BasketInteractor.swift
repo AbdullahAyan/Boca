@@ -12,5 +12,13 @@ class BasketInteractor {
 }
 
 extension BasketInteractor: PresenterToInteractorBasketProtocol {
+    func changeEntityOf() {
+        
+    }
+    
+    func updateOrder() {
+        
+    }
+    
     
 }

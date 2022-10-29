@@ -13,6 +13,14 @@ class BasketPresenter {
 }
 
 extension BasketPresenter: ViewControllerToPresenterBasketProtocol {
+    func changeEntityOf() {
+        
+    }
+    
+    func updateOrder() {
+        
+    }
+    
 
     
 }
