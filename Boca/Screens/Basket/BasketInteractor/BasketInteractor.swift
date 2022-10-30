@@ -28,9 +28,6 @@ extension BasketInteractor: PresenterToInteractorBasketProtocol {
                 do{
                     let response = try JSONDecoder().decode(Basket.self,from: data)
                     if let basket = response.sepet_yemekler {
-                        for food in basket {
-                            print(food.sepet_yemek_id)
-                        }
                         self.basketPresenter?.sendBasketToViewController(basket: basket)
                     }
                 }catch{
@@ -44,7 +41,7 @@ extension BasketInteractor: PresenterToInteractorBasketProtocol {
         let params: Parameters = ["sepet_yemek_id": basketFoodId, "kullanici_adi": User.email]
         let url = "http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php"
         
-        AF.request(url,method: .post,parameters: params).response { [self] response in
+        AF.request(url,method: .post,parameters: params).response { response in
             if let data = response.data {
                 do {
                     let response = try JSONSerialization.jsonObject(with: data)
