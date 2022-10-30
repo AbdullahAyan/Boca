@@ -58,6 +58,8 @@ final class ProfileView: UIView {
         button.setTitleColor(.red, for: .normal)
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.5
+        
+        button.addTarget(profileViewController, action: #selector(profileViewController!.logOut), for: .touchUpInside)
         return button
     }()
     

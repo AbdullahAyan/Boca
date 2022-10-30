@@ -16,14 +16,14 @@ import AuthenticationServices
       
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    static var authViewController = AuthViewController()
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
         
         FirebaseApp.configure()
-
         setupWindow()
         
         return true
@@ -32,17 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any])
-      -> Bool {
-      return GIDSignIn.sharedInstance.handle(url)
+    -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
     }
-
     
-    private func setupWindow() {
+    
+    func setupWindow() {
         let window = UIWindow()
         
         let menuViewController = MenuViewController()
         let basketViewController = BasketViewController()
-        let profileViewController = ProfileViewController()
+        let profileViewController = ProfileViewController(appDelegate: self)
         
         menuViewController.tabBarItem = UITabBarItem(title: "Menu", image: UIImage(systemName: "menucard"), tag: 0)
         basketViewController.tabBarItem = UITabBarItem(title: "Sepet", image: UIImage(systemName: "basket"),tag: 1)
@@ -55,21 +55,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [menuNavigationController,basketNavigationController,profileNavigationController]
         
-        let authViewController = AuthViewController()
-        let authNavigationController = UINavigationController(rootViewController: authViewController)
+        let authNavigationController = UINavigationController(rootViewController: AppDelegate.authViewController)
         authNavigationController.setNavigationBarHidden(true, animated: true)
         
         tabBarController.tabBar.backgroundColor = .red
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.barTintColor = .white
-        authViewController.tabBar = tabBarController
-
+        AppDelegate.authViewController.tabBar = tabBarController
+        
         window.rootViewController = authNavigationController
         window.makeKeyAndVisible()
         self.window = window
     }
-    
-    
-
-
 }

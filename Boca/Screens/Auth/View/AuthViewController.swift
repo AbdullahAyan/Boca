@@ -14,10 +14,17 @@ class AuthViewController: UIViewController {
     
     var tabBar: UITabBarController?
     
+    init(authView: AuthView? = nil, authPresenter: ViewControllerToPresenterAuthProtocol? = nil, tabBar: UITabBarController? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        AuthRouter.createModule(ref: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        AuthRouter.createModule(ref: self)
         view = authView
         view.backgroundColor = .white
         }

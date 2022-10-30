@@ -11,23 +11,29 @@ import Foundation
 
 protocol ViewToViewControllerProfileProtocol {
     var profilePresenter: ViewControllerToPresenterProfileProtocol? { get set }
+    
+    func logOut()
 }
 
 protocol ViewControllerToPresenterProfileProtocol {
     var profileInteractor: PresenterToInteractorProfileProtocol? { get set}
+    func logOut()
 }
 
 protocol PresenterToInteractorProfileProtocol {
+    func logOut()
 }
 
 // MARK: - Transporter Protocols
 
 protocol InteractorToPresenterProfileProtocol {
-    var profileViewControllerr: PresenterToViewControllerProfileProtocol? { get set }
-    
+    var profileViewController: PresenterToViewControllerProfileProtocol? { get set }
+    func sendResponseToViewController(response: AuthResponse)
 }
 
 protocol PresenterToViewControllerProfileProtocol {
+    func sendResponseToViewController(response: AuthResponse)
+
 }
 
 

@@ -8,11 +8,19 @@
 import Foundation
 
 class ProfilePresenter {
-    var profileViewController: ViewToViewControllerProfileProtocol?
     var profileInteractor: PresenterToInteractorProfileProtocol?
+    var profileViewController: PresenterToViewControllerProfileProtocol?
+
 }
 
 extension ProfilePresenter: ViewControllerToPresenterProfileProtocol {
+    func logOut() {
+        profileInteractor?.logOut()
+    }
+}
 
-    
+extension ProfilePresenter: InteractorToPresenterProfileProtocol {
+    func sendResponseToViewController(response: AuthResponse) {
+        profileViewController?.sendResponseToViewController(response: response)
+    }
 }
