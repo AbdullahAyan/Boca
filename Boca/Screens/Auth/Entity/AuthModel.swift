@@ -10,3 +10,8 @@ import Foundation
 struct User {
     static var email: String = ""
 }
+
+enum AuthResponse {
+    case Success
+    case Failure
+}

@@ -10,7 +10,6 @@ import Foundation
 // MARK: - Main Protocols
 
 protocol ViewToViewControllerAuthProtocol {
-    var authView: AuthView? { get set }
     var authPresenter: ViewControllerToPresenterAuthProtocol? { get set }
     
     func register()
@@ -20,13 +19,35 @@ protocol ViewToViewControllerAuthProtocol {
 }
 
 protocol ViewControllerToPresenterAuthProtocol {
-    var authViewController: ViewToViewControllerAuthProtocol? { get set }
     var authInteractor: PresenterToInteractorAuthProtocol? { get set}
+    
+    func register(withEmail: String, password: String)
+    func login(withEmail: String, password: String)
+    func resetPassword()
+    func signInWithGoogle()
 }
 
 protocol PresenterToInteractorAuthProtocol {
-    var authPresenter: ViewControllerToPresenterAuthProtocol? { get set }
+    var authPresenter: InteractorToPresenterAuthProtocol? {get set}
+    
+    func register(withEmail: String, password: String)
+    func login(withEmail: String, password: String)
+    func resetPassword()
+    func signInWithGoogle()
 }
+
+// MARK: - Transporter Protocols
+protocol InteractorToPresenterAuthProtocol {
+    var authViewController: PresentertoViewControllerAuthProtocol? { get set }
+    
+    func sendResponseToViewController(response: AuthResponse,title: String?,message: String?)
+}
+
+protocol PresentertoViewControllerAuthProtocol {
+    func sendResponseToViewController(response: AuthResponse,title: String?,message: String?)
+}
+
+
 
 // MARK: - Router Protocol
 
