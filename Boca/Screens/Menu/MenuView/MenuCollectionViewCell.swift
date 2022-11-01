@@ -22,6 +22,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
         button.backgroundColor = .red
         button.layer.cornerRadius = 15
+        button.titleLabel?.text = ""
         
         button.addTarget(menuViewContoller, action: #selector(menuViewContoller.foodSelected) , for: .touchUpInside)
         

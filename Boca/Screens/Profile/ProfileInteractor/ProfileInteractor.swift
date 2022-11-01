@@ -72,12 +72,6 @@ extension ProfileInteractor: PresenterToInteractorProfileProtocol {
                 if let error = error {
                     errorAlert(title: "Error", message: error.localizedDescription)
                 } else {
-                    //            if let image {
-                    //                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                    //                changeRequest?.commitChanges { error in
-                    //                    self.errorAlert(title: "Error", message: error!.localizedDescription)
-                    //                }
-                    //            }
                     
                     if let name {
                         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()

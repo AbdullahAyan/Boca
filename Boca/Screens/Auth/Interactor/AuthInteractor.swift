@@ -14,38 +14,19 @@ import GoogleSignIn
 class AuthInteractor: PresenterToInteractorAuthProtocol {
     var authPresenter: InteractorToPresenterAuthProtocol?
     
+    
     @objc func login(withEmail: String, password: String) {
-
-        let email = "abdullahayaneng@icloud.com"
-        let password = "123456"
-
-        Auth.auth().signIn(withEmail: email, password: password) { [self] authResult, error in
+        Auth.auth().signIn(withEmail: withEmail, password: password) { [self] authResult, error in
             if let error {
                 authPresenter?.sendResponseToViewController(response: .Failure,title: "Error",message: error.localizedDescription)
-            }
-            if authResult?.user.email == nil {
-                authPresenter?.sendResponseToViewController(response: .Failure,title: "Error",message: "Email or password wrong?")
-            }else {
+            } else {
                 User.email = (authResult?.user.email)!
+
                 authPresenter?.sendResponseToViewController(response: .Success, title: nil, message: nil)
             }
         }
     }
-    
-    
-    
-//    @objc func login(withEmail: String, password: String) {
-//        Auth.auth().signIn(withEmail: withEmail, password: password) { [self] authResult, error in
-//            if let error {
-//                authPresenter?.sendResponseToViewController(response: .Failure,title: "Error",message: error.localizedDescription)
-//            } else {
-//                User.email = (authResult?.user.email)!
-//
-//                authPresenter?.sendResponseToViewController(response: .Success, title: nil, message: nil)
-//            }
-//        }
-//    }
-//
+
     
     @objc func signInWithGoogle() {
         

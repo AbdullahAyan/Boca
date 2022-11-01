@@ -16,14 +16,14 @@ class AuthView: UIView {
     private lazy var authLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Pacifico-Regular", size: 36)
-        label.text = "Welcome to Boca"
+        label.text = "Boca'ya Hoşgeldin"
         return label
     }()
     
     private lazy var authText: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Mukta-Medium", size: 16)
-        label.text = " \"Boca\" the most delicious food on your plate."
+        label.text = "En lezzetli yemekleri tabağınıza \"Boca\" edin."
         label.numberOfLines = 0
         return label
     }()
@@ -40,7 +40,7 @@ class AuthView: UIView {
     private(set) lazy var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
-        textField.placeholder = "password"
+        textField.placeholder = "şifre"
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
 
@@ -51,7 +51,7 @@ class AuthView: UIView {
     
     private lazy var resetPasswordButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Reset Password", for: .normal)
+        button.setTitle("Şifreyi yenile", for: .normal)
         button.titleLabel?.font = UIFont(name: "Mukta-Medium", size: 12)
         button.backgroundColor = .clear
         button.setTitleColor(.systemBlue, for: .normal)
@@ -64,7 +64,7 @@ class AuthView: UIView {
 
     private lazy var registerButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Register", for: .normal)
+        button.setTitle("Kayıt", for: .normal)
         button.titleLabel?.font = UIFont(name: "Mukta-Medium", size: 16)
         button.backgroundColor = .black
         
@@ -82,7 +82,7 @@ class AuthView: UIView {
     
     private lazy var loginButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Giriş", for: .normal)
         button.titleLabel?.font = UIFont(name: "Mukta-Medium", size: 16)
         button.backgroundColor = .red
         

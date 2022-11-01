@@ -42,7 +42,7 @@ class BasketViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if !basket.sepet_yemekler!.isEmpty {
+        if !(basket.sepet_yemekler?.isEmpty ?? true) {
             basketPresenter?.updateBasket(basket: basket)
         }
     }
@@ -101,7 +101,18 @@ extension BasketViewController:UITableViewDelegate,UITableViewDataSource, ViewTo
     }
     
     @objc func saveOrder() {
-        basketPresenter?.saveOrder(basket: basket)
+        if !(basket.sepet_yemekler?.isEmpty ?? true) {
+            basketPresenter?.saveOrder(basket: basket)
+            presentAlert(title: "Kayıt Edilidi", message: "")
+        }else {
+            presentAlert(title: "Sepetiniz Boş", message: "Kayıt edilmedi.")
+        }
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
 }
 

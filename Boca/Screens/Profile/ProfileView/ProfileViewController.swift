@@ -128,9 +128,13 @@ extension ProfileViewController: UITableViewDelegate,UITableViewDataSource {
         
         var totalPrice = 0.0
         
-        for food in baskets[indexPath.row].sepet_yemekler! {
-            totalPrice += Double(food.yemek_fiyat!)! * Double(food.yemek_siparis_adet!)!
+        if let yemekler = baskets[indexPath.row].sepet_yemekler {
+            for food in yemekler {
+                totalPrice += Double(food.yemek_fiyat!)! * Double(food.yemek_siparis_adet!)!
+            }
         }
+        
+        
         
         cell.orderNumber.text = "\(indexPath.row + 1)"
         cell.orderTotalPrice.text = String(totalPrice) + "₺"
