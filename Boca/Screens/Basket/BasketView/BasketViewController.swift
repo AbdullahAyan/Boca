@@ -12,7 +12,7 @@ class BasketViewController: UIViewController {
     var basketView: BasketView?
     var basketPresenter: ViewControllerToPresenterBasketProtocol?
     
-    var basket = [Basket.BasketFood]()
+    var basket = Basket()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class BasketViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if !basket.isEmpty {
+        if !basket.sepet_yemekler!.isEmpty {
             basketPresenter?.updateBasket(basket: basket)
         }
     }
@@ -50,23 +50,23 @@ class BasketViewController: UIViewController {
 
 extension BasketViewController:UITableViewDelegate,UITableViewDataSource, ViewToViewControllerBasketProtocol {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return basket.count
+        return basket.sepet_yemekler?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BasketTableViewCell
    
-        cell.entity = Int(basket[indexPath.row].yemek_siparis_adet!)!
-        cell.foodNameLabel.text = basket[indexPath.row].yemek_adi!
-        basketPresenter?.setImage(imageView: cell.foodImageView, foodName: basket[indexPath.row].yemek_resim_adi!)
-        cell.foodPriceLabel.text = basket[indexPath.row].yemek_fiyat! + " ₺"
+        cell.entity = Int(basket.sepet_yemekler![indexPath.row].yemek_siparis_adet!)!
+        cell.foodNameLabel.text = basket.sepet_yemekler![indexPath.row].yemek_adi!
+        basketPresenter?.setImage(imageView: cell.foodImageView, foodName: basket.sepet_yemekler![indexPath.row].yemek_resim_adi!)
+        cell.foodPriceLabel.text = basket.sepet_yemekler![indexPath.row].yemek_fiyat! + " ₺"
         
         cell.entityChanged = { [self] change in
-            basket[indexPath.row].yeni_entity = "\(cell.entity)"
+            basket.sepet_yemekler![indexPath.row].yeni_entity = "\(cell.entity)"
             basketView?.totalPriceLabel.text = "\(calculateTotalAmount()) ₺"
             if cell.entity == 0 {
-                basketPresenter?.deleteBasketFood(basketFoodId: basket[indexPath.row].sepet_yemek_id!)
-                basket.remove(at: indexPath.row)
+                basketPresenter?.deleteBasketFood(basketFoodId: basket.sepet_yemekler![indexPath.row].sepet_yemek_id!)
+                basket.sepet_yemekler!.remove(at: indexPath.row)
                 tableView.reloadData()
             }
         }
@@ -81,10 +81,10 @@ extension BasketViewController:UITableViewDelegate,UITableViewDataSource, ViewTo
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            basketPresenter?.deleteBasketFood(basketFoodId: basket[indexPath.row].sepet_yemek_id!)
-            basket.remove(at: indexPath.row)
+            basketPresenter?.deleteBasketFood(basketFoodId: basket.sepet_yemekler![indexPath.row].sepet_yemek_id!)
+            basket.sepet_yemekler!.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            if basket.isEmpty {
+            if basket.sepet_yemekler!.isEmpty {
                 basketView?.totalPriceLabel.text = "0 ₺"
             }
             tableView.reloadData()
@@ -94,15 +94,19 @@ extension BasketViewController:UITableViewDelegate,UITableViewDataSource, ViewTo
 
     func calculateTotalAmount() -> Int{
         var amount = 0
-        for food in basket {
+        for food in basket.sepet_yemekler! {
             amount += Int(food.yemek_fiyat!)! * Int((food.yeni_entity ?? food.yemek_siparis_adet)!)!
         }
         return amount
     }
+    
+    @objc func saveOrder() {
+        basketPresenter?.saveOrder(basket: basket)
+    }
 }
 
 extension BasketViewController: PresenterToViewControllerBasketProtocol {
-    func sendBasketToViewController(basket: [Basket.BasketFood]) {
+    func sendBasketToViewController(basket: Basket) {
         self.basket = basket
         DispatchQueue.main.async {
             self.basketView?.tableView.reloadData()

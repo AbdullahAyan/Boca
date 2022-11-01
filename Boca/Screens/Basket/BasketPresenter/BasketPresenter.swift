@@ -15,11 +15,6 @@ class BasketPresenter {
 }
 
 extension BasketPresenter: ViewControllerToPresenterBasketProtocol {
-
-    
-
-    
-
     
     func setImage(imageView: UIImageView, foodName: String) {
         basketInteractor?.setImage(imageView: imageView, foodName: foodName)
@@ -29,7 +24,7 @@ extension BasketPresenter: ViewControllerToPresenterBasketProtocol {
         basketInteractor?.getBasket()
     }
     
-    func updateBasket(basket: [Basket.BasketFood]) {
+    func updateBasket(basket: Basket) {
         basketInteractor?.updateBasket(basket: basket)
     }
     
@@ -37,13 +32,15 @@ extension BasketPresenter: ViewControllerToPresenterBasketProtocol {
         basketInteractor?.deleteBasketFood(basketFoodId: basketFoodId)
     }
     
+    func saveOrder(basket: Basket) {
+        basketInteractor?.saveOrder(basket: basket)
+    }
     
-
     
 }
 
 extension BasketPresenter: InteractorToPresenterBasketProtocol {
-    func sendBasketToViewController(basket: [Basket.BasketFood]) {
+    func sendBasketToViewController(basket: Basket) {
         basketViewController?.sendBasketToViewController(basket: basket)
     }
     

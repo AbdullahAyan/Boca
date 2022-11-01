@@ -8,12 +8,19 @@
 import Foundation
 import UIKit
 import Alamofire
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class BasketInteractor {
     var basketPresenter: InteractorToPresenterBasketProtocol?
+    
+    let db = Firestore.firestore()
 }
 
 extension BasketInteractor: PresenterToInteractorBasketProtocol {
+
+    
     
     func setImage(imageView: UIImageView, foodName: String) {
         let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/" + foodName)
@@ -26,10 +33,8 @@ extension BasketInteractor: PresenterToInteractorBasketProtocol {
         AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php",method: .post,parameters: params).response { response in
             if let data  = response.data {
                 do{
-                    let response = try JSONDecoder().decode(Basket.self,from: data)
-                    if let basket = response.sepet_yemekler {
-                        self.basketPresenter?.sendBasketToViewController(basket: basket)
-                    }
+                    let basket = try JSONDecoder().decode(Basket.self,from: data)
+                    self.basketPresenter?.sendBasketToViewController(basket: basket)
                 }catch{
                     print(error.localizedDescription)
                 }
@@ -44,8 +49,8 @@ extension BasketInteractor: PresenterToInteractorBasketProtocol {
         AF.request(url,method: .post,parameters: params).response { response in
             if let data = response.data {
                 do {
-                    let response = try JSONSerialization.jsonObject(with: data)
-                    print(response)
+                    let _ = try JSONSerialization.jsonObject(with: data)
+                    
                 } catch  {
                     print(error.localizedDescription)
                 }
@@ -53,9 +58,9 @@ extension BasketInteractor: PresenterToInteractorBasketProtocol {
         }
     }
     
-    func updateBasket(basket: [Basket.BasketFood]) {
-        let lastId = basket[basket.count-1].sepet_yemek_id
-        for food in basket {
+    func updateBasket(basket: Basket) {
+        let lastId = basket.sepet_yemekler![basket.sepet_yemekler!.count-1].sepet_yemek_id
+        for food in basket.sepet_yemekler! {
             if food.yeni_entity != "0" {
                 addFoodToBasket(food: food, entity: Int((food.yeni_entity ?? food.yemek_siparis_adet)!)!)
             }
@@ -72,9 +77,7 @@ extension BasketInteractor: PresenterToInteractorBasketProtocol {
         AF.request("http://kasimadalan.pe.hu/yemekler/sepeteYemekEkle.php",method: .post,parameters: params).response { response in
             if let data  = response.data {
                 do{
-                    let response = try JSONSerialization.jsonObject(with: data)
-                    print(User.email)
-                    print(response)
+                    let _ = try JSONSerialization.jsonObject(with: data)
                 }catch{
                     print(error.localizedDescription)
                     
@@ -83,7 +86,13 @@ extension BasketInteractor: PresenterToInteractorBasketProtocol {
         }
     }
     
+    func saveOrder(basket: Basket) {
+        do {
+            let _ = try db.collection("\(User.email)").addDocument(from: basket)
+        } catch let error {
+            print("Error writing city to Firestore: \(error)")
+        }
+    }
+    
 
-    
-    
 }

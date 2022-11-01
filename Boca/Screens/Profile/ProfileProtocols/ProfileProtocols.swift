@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Main Protocols
 
@@ -17,11 +18,19 @@ protocol ViewToViewControllerProfileProtocol {
 
 protocol ViewControllerToPresenterProfileProtocol {
     var profileInteractor: PresenterToInteractorProfileProtocol? { get set}
+    
+    func setUserInfo()
     func logOut()
+    func saveChanges(email: String?, name: String?,image: UIImage?)
+    func getOrders()
 }
 
 protocol PresenterToInteractorProfileProtocol {
+    
+    func setUserInfo()
     func logOut()
+    func saveChanges(email: String?, name: String?,image: UIImage?)
+    func getOrders()
 }
 
 // MARK: - Transporter Protocols
@@ -29,10 +38,16 @@ protocol PresenterToInteractorProfileProtocol {
 protocol InteractorToPresenterProfileProtocol {
     var profileViewController: PresenterToViewControllerProfileProtocol? { get set }
     func sendResponseToViewController(response: AuthResponse)
+    func sendUserInfoToViewController(email: String,name: String?)
+    func sendOrdersToViewController(baskets: [Basket])
 }
 
 protocol PresenterToViewControllerProfileProtocol {
     func sendResponseToViewController(response: AuthResponse)
+    func sendUserInfoToViewController(email: String,name: String?)
+    func sendOrdersToViewController(baskets: [Basket])
+
+
 
 }
 

@@ -16,8 +16,20 @@ class Basket: Codable {
         var yemek_siparis_adet: String?
         var kullanici_adi: String?
         var yeni_entity: String?
-        
-        
+
+        enum CodingKeys:String, CodingKey {
+            case sepet_yemek_id
+            case yemek_adi
+            case yemek_resim_adi
+            case yemek_fiyat
+            case yemek_siparis_adet
+            case kullanici_adi
+            case yeni_entity
+        }
     }
     var sepet_yemekler: [Basket.BasketFood]?
+    
+    enum CodingKeys: CodingKey {
+        case sepet_yemekler
+    }
 }

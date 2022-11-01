@@ -11,7 +11,7 @@ final class ProfileView: UIView {
 
     var profileViewController: ProfileViewController?
   
-    private lazy var profileImageView: UIImageView = {
+    private(set) lazy var profileImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.image = UIImage(systemName: "swift")
         
@@ -24,17 +24,22 @@ final class ProfileView: UIView {
         return imageView
     }()
     
-    private lazy var nameTextField: UITextField = {
+    private(set) lazy var nameTextField: UITextField = {
        let textField = UITextField()
         textField.placeholder = "İsim"
         textField.borderStyle = .roundedRect
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .words
+                
         return textField
     }()
     
-    private lazy var emailTextField: UITextField = {
+    private(set) lazy var emailTextField: UITextField = {
        let textField = UITextField()
         textField.placeholder = "Email"
         textField.borderStyle = .roundedRect
+        textField.autocapitalizationType = .none
+
         return textField
     }()
     
@@ -43,12 +48,15 @@ final class ProfileView: UIView {
         button.setTitle("Kaydet", for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 10
+        
+        button.addTarget(profileViewController, action: #selector(profileViewController!.saveChanges), for: .touchUpInside)
         return button
     }()
     
-    private lazy var ordersTableView: UITableView = {
+    private(set) lazy var ordersTableView: UITableView = {
         let tableView = UITableView()
-    
+
+        
         return tableView
     }()
     
@@ -68,6 +76,9 @@ final class ProfileView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = .white
+        
+        ordersTableView.register(ProfileOrdersTableViewCell.self, forCellReuseIdentifier: "cell")
+
         
         addSubview(profileImageView)
         profileImageView.snp.makeConstraints { make in
@@ -107,6 +118,7 @@ final class ProfileView: UIView {
         addSubview(ordersTableView)
         ordersTableView.snp.makeConstraints { make in
             make.top.equalTo(logOutButton.snp.bottom)
+            make.left.right.equalToSuperview()
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
         

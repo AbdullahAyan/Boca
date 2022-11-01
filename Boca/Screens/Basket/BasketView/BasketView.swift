@@ -24,6 +24,8 @@ final class BasketView: UIView {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.setTitleColor(.white, for: .normal)
         
+        button.addTarget(basketViewController, action: #selector(basketViewController!.saveOrder), for: .touchUpInside)
+        
         button.layer.cornerRadius = 10
         return button
     }()

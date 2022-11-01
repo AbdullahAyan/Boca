@@ -19,7 +19,6 @@ class AuthInteractor: PresenterToInteractorAuthProtocol {
         let email = "abdullahayaneng@icloud.com"
         let password = "123456"
 
-        Auth.auth().languageCode = "tr"
         Auth.auth().signIn(withEmail: email, password: password) { [self] authResult, error in
             if let error {
                 authPresenter?.sendResponseToViewController(response: .Failure,title: "Error",message: error.localizedDescription)

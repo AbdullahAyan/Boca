@@ -17,9 +17,7 @@ extension FoodInteractor: PresenterToInteractorFoodProtocol {
         AF.request("http://kasimadalan.pe.hu/yemekler/sepeteYemekEkle.php",method: .post,parameters: params).response { response in
             if let data  = response.data {
                 do{
-                    let cevap = try JSONSerialization.jsonObject(with: data)
-                    print(User.email)
-                    print(cevap)
+                    let _ = try JSONSerialization.jsonObject(with: data)
                 }catch{ print(error.localizedDescription) }
             }
         }
